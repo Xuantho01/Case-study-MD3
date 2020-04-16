@@ -8,7 +8,7 @@
     <title>shoes.org</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
@@ -17,7 +17,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a href="#" class="navbar-branch">
-            <img src="../image/logo.png" alt="logo" height="50px">
+            <img src="../images/logo.png" alt="logo" height="50px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle = "collapse" data-target = "#navbarReponsive">
             <span class="navbar-toggler-icon"></span>
@@ -34,11 +34,10 @@
         </div>
     </div>
 </nav>
-<!--carousel-->
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item">
-            <img class="d-block w-100" src="../image/unnamed.jpg" alt="First slide">
+            <img class="d-block w-100" src="../images/unnamed.jpg" alt="First slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -51,7 +50,7 @@
             </div>
         </div>
         <div class="carousel-item active">
-            <img class="d-block w-100" src="../image/bia1.png" alt="Second slide">
+            <img class="d-block w-100" src="../images/bia1.png" alt="Second slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -64,7 +63,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../image/bia2.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../images/bia2.jpg" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -77,7 +76,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../image/catalogue-giay-cao-got1.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../images/catalogue-giay-cao-got1.jpg" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -90,7 +89,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../image/4-2.png" alt="Third slide">
+            <img class="d-block w-100" src="../images/4-2.png" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -102,6 +101,7 @@
                 </button>
             </div>
         </div>
+
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -112,6 +112,84 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+<!--carousel-->
+<%--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">--%>
+<%--    <div class="carousel-inner">--%>
+<%--        <div class="carousel-item">--%>
+<%--            <img class="d-block w-100" src="../image/unnamed.jpg" alt="First slide">--%>
+<%--            <div class="carousel-caption">--%>
+<%--                <h1>GIÀY CHẤT</h1>--%>
+<%--                <h3>NÂNG TẦM CUỘC SỐNG</h3>--%>
+<%--                <button type="button" class="btn btn-outline-light btn-lg">--%>
+<%--                    VIEW TUTORIALS--%>
+<%--                </button>--%>
+<%--                <button type="button" class="btn btn-primary btn-lg">--%>
+<%--                    Get started--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="carousel-item active">--%>
+<%--            <img class="d-block w-100" src="../image/bia1.png" alt="Second slide">--%>
+<%--            <div class="carousel-caption">--%>
+<%--                <h1>GIÀY CHẤT</h1>--%>
+<%--                <h3>NÂNG TẦM CUỘC SỐNG</h3>--%>
+<%--                <button type="button" class="btn btn-outline-light btn-lg">--%>
+<%--                    VIEW TUTORIALS--%>
+<%--                </button>--%>
+<%--                <button type="button" class="btn btn-primary btn-lg">--%>
+<%--                    Get started--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="carousel-item">--%>
+<%--            <img class="d-block w-100" src="../image/bia2.jpg" alt="Third slide">--%>
+<%--            <div class="carousel-caption">--%>
+<%--                <h1>GIÀY CHẤT</h1>--%>
+<%--                <h3>NÂNG TẦM CUỘC SỐNG</h3>--%>
+<%--                <button type="button" class="btn btn-outline-light btn-lg">--%>
+<%--                    VIEW TUTORIALS--%>
+<%--                </button>--%>
+<%--                <button type="button" class="btn btn-primary btn-lg">--%>
+<%--                    Get started--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="carousel-item">--%>
+<%--            <img class="d-block w-100" src="../image/catalogue-giay-cao-got1.jpg" alt="Third slide">--%>
+<%--            <div class="carousel-caption">--%>
+<%--                <h1>GIÀY CHẤT</h1>--%>
+<%--                <h3>NÂNG TẦM CUỘC SỐNG</h3>--%>
+<%--                <button type="button" class="btn btn-outline-light btn-lg">--%>
+<%--                    VIEW TUTORIALS--%>
+<%--                </button>--%>
+<%--                <button type="button" class="btn btn-primary btn-lg">--%>
+<%--                    Get started--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="carousel-item">--%>
+<%--            <img class="d-block w-100" src="../image/4-2.png" alt="Third slide">--%>
+<%--            <div class="carousel-caption">--%>
+<%--                <h1>GIÀY CHẤT</h1>--%>
+<%--                <h3>NÂNG TẦM CUỘC SỐNG</h3>--%>
+<%--                <button type="button" class="btn btn-outline-light btn-lg">--%>
+<%--                    VIEW TUTORIALS--%>
+<%--                </button>--%>
+<%--                <button type="button" class="btn btn-primary btn-lg">--%>
+<%--                    Get started--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">--%>
+<%--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
+<%--        <span class="sr-only">Previous</span>--%>
+<%--    </a>--%>
+<%--    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">--%>
+<%--        <span class="carousel-control-next-icon" aria-hidden="true"></span>--%>
+<%--        <span class="sr-only">Next</span>--%>
+<%--    </a>--%>
+<%--</div>--%>
 <div class="container-fluid" style="height: 10px; border-bottom: 1px solid #EAEDED;"></div>
 <div class="container-fluid padding">
     <div class="row welcome text-center">
@@ -154,98 +232,59 @@
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
             <div class="row">
+                <c:forEach items='${requestScope["products"]}' var="product">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                        <a href="#"><img class="card-img-top" src="${product.getImage()}"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#">Item One</a>
+                                <a href="#">${product.getProductName()}</a>
                             </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                            <h5>$${product.getPrice()}</h5>
+                            <h5>${product.getDiscount()}%</h5>
+<%--                            <p class="card-text">${product.getDescription()}</p>--%>
                         </div>
                         <button class="btn btn-primary">Mua ngay</button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.rei.com/media/product/113826" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Two</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <button class="btn btn-primary">Mua ngay</button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="https://vader-prod.s3.amazonaws.com/1571422973-1562867102-free-rn-5-mens-running-shoe-rbzmbn-1571422966.jpg" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Three</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <button class="btn btn-primary">Mua ngay</button>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Four</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <button class="btn btn-primary">Mua ngay</button>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Five</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <button class="btn btn-primary">Mua ngay</button>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Six</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <button class="btn btn-primary">Mua ngay</button>
-                    </div>
-                </div>
-
+                </c:forEach>
             </div>
             <!-- /.row -->
-
         </div>
         <!-- /.col-lg-9 -->
-
     </div>
     <!-- /.row -->
-
 </div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+<%--<nav class="col-md-12 center" aria-label="Page navigation example">--%>
+<%--    <ul class="pagination">--%>
+<%--        <li class="page-item">--%>
+<%--            <a class="page-link" href="#" aria-label="Previous">--%>
+<%--                <span aria-hidden="true">&laquo;</span>--%>
+<%--            </a>--%>
+<%--        </li>--%>
+<%--        <li class="page-item"><a class="page-link" href="#">1</a></li>--%>
+<%--        <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
+<%--        <li class="page-item"><a class="page-link" href="#">3</a></li>--%>
+<%--        <li class="page-item">--%>
+<%--            <a class="page-link" href="#" aria-label="Next">--%>
+<%--                <span aria-hidden="true">&raquo;</span>--%>
+<%--            </a>--%>
+<%--        </li>--%>
+<%--    </ul>--%>
+<%--</nav>--%>
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">
