@@ -120,7 +120,12 @@ public class ProductImpl implements IProduct {
     }
 
     @Override
-    public boolean remove(int id) throws SQLException {
-        return false;
+    public void remove(String productCode) throws SQLException {
+        try (PreparedStatement statement = Connect.getConnection().prepareStatement("delete from product where productCode = ?")){
+            statement.setString(1,productCode);
+            statement.executeUpdate();
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

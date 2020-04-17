@@ -13,5 +13,5 @@ public interface IProduct {
 
     public void update(String productCode, Product product) throws SQLException;
 
-    public boolean remove(int id) throws SQLException;
+    public void remove(String productCode) throws SQLException;
 }

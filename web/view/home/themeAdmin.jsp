@@ -167,7 +167,7 @@
                             </div>
                             <div>
                                 <button class="btn btn-primary"><a href="/system?action=update&productCode=${product.getProductCode()}">Sửa</a></button>
-                                <button class="btn btn-primary">Xóa</button>
+                                <button class="btn btn-primary"><a href="/system?action=delete&productCode=${product.getProductCode()}">Xóa</a></button>
                             </div>
                         </div>
                     </div>
@@ -186,8 +186,8 @@
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
                             <div>
-                                <button class="btn btn-primary">Sửa</button>
-                                <button class="btn btn-primary">Xóa</button>
+                                <button class="btn btn-primary"><a href="/system?action=update&productCode=${product.getProductCode()}">Sửa</a></button>
+                                <button class="btn btn-primary"><a href="/system?action=delete&productCode=${product.getProductCode()}">Xóa</a></button>
                             </div>
                         </div>
                     </div>

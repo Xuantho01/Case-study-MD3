@@ -40,10 +40,24 @@ public class ProductServlet extends HttpServlet {
                 }
                 break;
             case "delete":
-//                showCreateForm(request, response);
+                try {
+                    deleteProduct(request,response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 break;
+        }
+    }
+
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String productCode = request.getParameter("productCode");
+        try {
+            this.product.remove(productCode);
+            response.sendRedirect("/system?action=themeAdmin.jsp");
+        }catch (SQLException | IOException e){
+            System.out.println(e.getMessage());
         }
     }
 
@@ -110,6 +124,9 @@ public class ProductServlet extends HttpServlet {
             case "create":
                 showCreateForm(request, response);
                 break;
+            case "delete":
+                showDeleteForm(request,response);
+                break;
             case "update":
                 showUpdateForm(request,response);
                 break;
@@ -121,9 +138,6 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "homeAdmin":
                 showHomeFormAdmin(request, response);
-                break;
-            case "delete":
-                showUpdateForm(request, response);
                 break;
             default:
                 showHome(request,response);
@@ -137,6 +151,18 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("products",products);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/update.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+        String productCode = request.getParameter("productCode");
+        Product products = this.product.findByProductCode(productCode);
+        request.setAttribute("products",products);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/delete.jsp");
         try {
             dispatcher.forward(request,response);
         } catch (ServletException | IOException e) {
