@@ -17,15 +17,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/creatNewProduct.css">
-    <link rel="stylesheet" href="../js/createNewProduct.js">
+    <link rel="stylesheet" href="../../css/forHome/styleHome.css">
+    <link rel="stylesheet" href="../../css/product/creatNewProduct.css">
+    <link rel="stylesheet" href="../../js/createNewProduct.js">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a href="#" class="navbar-branch">
-            <img src="../images/logo.png" alt="logo" height="50px">
+            <img src="../../images/logo.png" alt="logo" height="50px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle = "collapse" data-target = "#navbarReponsive">
             <span class="navbar-toggler-icon"></span>

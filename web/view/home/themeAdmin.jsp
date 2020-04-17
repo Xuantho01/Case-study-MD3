@@ -11,25 +11,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/forHome/styleHomeAdmin.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a href="#" class="navbar-branch">
-            <img src="../images/logo.png" alt="logo" height="50px">
+            <img src="../../images/logo.png" alt="logo" height="50px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle = "collapse" data-target = "#navbarReponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
-                <button type="button" class="btn  btn-primary">
-                    <a href="#" class="nav-link">Đăng nhập</a>
-                </button>
-                <button type="button" class="btn btn-primary">
-                    <a href="#" class="nav-link">Đăng ký</a>
-                </button>
+                <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
+                <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
+                <li><a href="#" class="nav-link">Đăng xuất</a></li>
             </ul>
         </div>
     </div>
@@ -37,7 +34,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/unnamed.jpg" alt="First slide">
+            <img class="d-block w-100" src="../../images/unnamed.jpg" alt="First slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -50,7 +47,7 @@
             </div>
         </div>
         <div class="carousel-item active">
-            <img class="d-block w-100" src="../images/bia1.png" alt="Second slide">
+            <img class="d-block w-100" src="../../images/bia1.png" alt="Second slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -63,7 +60,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/bia2.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../../images/bia2.jpg" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -76,7 +73,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/catalogue-giay-cao-got1.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../../images/catalogue-giay-cao-got1.jpg" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -89,7 +86,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/4-2.png" alt="Third slide">
+            <img class="d-block w-100" src="../../images/4-2.png" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -156,7 +153,7 @@
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
             <div class="row">
-                <c:forEach items='${requestScope["products"]}' var="product" begin="8" end="11">
+                <c:forEach items='${requestScope["products"]}' var="product" begin="0" end="3">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
                             <a href="#"><img class="card-img-top" src="${product.getImage()}"></a>
@@ -168,12 +165,15 @@
                                 <h5>${product.getDiscount()}%</h5>
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
-                            <button class="btn btn-primary">Mua ngay</button>
+                            <div>
+                                <button class="btn btn-primary"><a href="/system?action=update&productCode=${product.getProductCode()}">Sửa</a></button>
+                                <button class="btn btn-primary">Xóa</button>
+                            </div>
                         </div>
                     </div>
                 </c:forEach>
                 <div class="col-12" id="newArrival">Mua sắm thả ga, giá rẻ bất ngờ</div>
-                <c:forEach items='${requestScope["products"]}' var="product" begin="12" end="15">
+                <c:forEach items='${requestScope["products"]}' var="product" begin="4" end="7">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
                             <a href="#"><img class="card-img-top" src="${product.getImage()}"></a>
@@ -185,7 +185,10 @@
                                 <h5>${product.getDiscount()}%</h5>
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
-                            <button class="btn btn-primary">Mua ngay</button>
+                            <div>
+                                <button class="btn btn-primary">Sửa</button>
+                                <button class="btn btn-primary">Xóa</button>
+                            </div>
                         </div>
                     </div>
                 </c:forEach>
@@ -209,6 +212,8 @@
         </li>
     </ul>
 </nav>
+
+<!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>

@@ -13,6 +13,21 @@ public class Product {
     private int amountExport;
     private String description;
 
+    public Product(String productCode, String productName, float price, float discount, int amount,
+                   String supplier, String typeCode, int amountImport, int amountExport,
+                   String description) {
+        this.productCode = productCode;
+        this.productName = productName;
+        this.price = price;
+        this.discount = discount;
+        this.amount = amount;
+        this.supplier = supplier;
+        this.typeCode = typeCode;
+        this.amountImport = amountImport;
+        this.amountExport = amountExport;
+        this.description = description;
+    }
+
     public Product() {
     }
 

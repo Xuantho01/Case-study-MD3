@@ -11,13 +11,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/forHome/styleHome.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a href="#" class="navbar-branch">
-            <img src="../images/logo.png" alt="logo" height="50px">
+            <img src="../../images/logo.png" alt="logo" height="50px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle = "collapse" data-target = "#navbarReponsive">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
                 <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
-                <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạp mới</a></li>
+                <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
                 <li><a href="#" class="nav-link">Cập nhật</a></li>
                 <li><a href="${pageContext.request.contextPath}/system?action=register" class="nav-link">Đăng ký</a></li>
                 <li><a href="#" class="nav-link">Đăng nhập</a></li>
@@ -36,7 +36,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/unnamed.jpg" alt="First slide">
+            <img class="d-block w-100" src="../../images/unnamed.jpg" alt="First slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="carousel-item active">
-            <img class="d-block w-100" src="../images/bia1.png" alt="Second slide">
+            <img class="d-block w-100" src="../../images/bia1.png" alt="Second slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/bia2.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../../images/bia2.jpg" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/catalogue-giay-cao-got1.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../../images/catalogue-giay-cao-got1.jpg" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../images/4-2.png" alt="Third slide">
+            <img class="d-block w-100" src="../../images/4-2.png" alt="Third slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
                 <h3>NÂNG TẦM CUỘC SỐNG</h3>

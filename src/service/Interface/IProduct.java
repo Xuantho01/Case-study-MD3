@@ -9,9 +9,9 @@ public interface IProduct {
 
     public void save(Product product) throws SQLException;
 
-    public Product findById(int id);
+    public Product findByProductCode(String productCode);
 
-    public boolean update(int id, Product product) throws SQLException;
+    public void update(String productCode, Product product) throws SQLException;
 
     public boolean remove(int id) throws SQLException;
 }
