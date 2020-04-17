@@ -4,12 +4,12 @@ public class Supplier {
     private String supplierCode;
     private String nameSupplier;
     private String address;
-    private String phoneNumber;
+    private int phoneNumber;
 
     public Supplier() {
     }
 
-    public Supplier(String supplierCode, String nameSupplier, String address, String phoneNumber) {
+    public Supplier(String supplierCode, String nameSupplier, String address, int phoneNumber) {
         this.supplierCode = supplierCode;
         this.nameSupplier = nameSupplier;
         this.address = address;
@@ -40,11 +40,11 @@ public class Supplier {
         this.address = address;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

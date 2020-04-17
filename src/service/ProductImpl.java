@@ -14,7 +14,7 @@ public class ProductImpl implements IProduct {
     @Override
     public List<Product> findAll() {
         List<Product> list = new ArrayList<>();
-        try (PreparedStatement statement = Connect.getConnection().prepareStatement("select * from products")){
+        try (PreparedStatement statement = Connect.getConnection().prepareStatement("select * from product")){
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
                 String productCode = resultSet.getString(1);

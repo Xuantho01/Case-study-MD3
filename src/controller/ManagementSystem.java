@@ -46,11 +46,15 @@ public class ManagementSystem extends HttpServlet {
         }
         switch (action) {
             case "create":
+                showCreateForm(request, response);
                 break;
             case "edit":
                 break;
-            case "delete":
-//                showCreateForm(request, response);
+            case "register":
+                showRegisterForm(request, response);
+                break;
+            case "nextPage":
+                showNextPage(request,response);
                 break;
             default:
                 showHome(request,response);
@@ -61,20 +65,37 @@ public class ManagementSystem extends HttpServlet {
     private void showHome(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products = this.product.findAll();
         request.setAttribute("products",products);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("home/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/home.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
-
-//    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("home/create.jsp");
-//        try {
-//            dispatcher.forward(request, response);
-//        } catch (ServletException | IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void showNextPage(HttpServletRequest request, HttpServletResponse response) {
+        List<Product> products = this.product.findAll();
+        request.setAttribute("products",products);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/nextPage.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/createNewProduct.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void showRegisterForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/register.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
