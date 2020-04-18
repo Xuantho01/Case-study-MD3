@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/oder")
 public class OderServlet extends HttpServlet {
@@ -44,12 +43,13 @@ public class OderServlet extends HttpServlet {
     }
 
     private void oderProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (userServlet.isLogin(request, response)) {
+        if (userServlet.isLogin()) {
             showOderForm(request, response);
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/login.jsp");
             try {
                 dispatcher.forward(request, response);
+                userServlet.checkLogin(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
@@ -89,7 +89,6 @@ public class OderServlet extends HttpServlet {
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void vietKey(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {

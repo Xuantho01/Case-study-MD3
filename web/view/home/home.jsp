@@ -170,7 +170,6 @@
                         <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Chi tiết sản phẩm</a></button>
                         <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Mua Ngay</a></button>
 
-                        <button class="btn btn-primary">Mua ngay</button>
                     </div>
                 </div>
                 </c:forEach>

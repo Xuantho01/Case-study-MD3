@@ -32,10 +32,9 @@
             <ul class="navbar-nav ml-auto">
                 <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
                 <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
-                <li><a href="#" class="nav-link">Cập nhật</a></li>
-                <li><a href="${pageContext.request.contextPath}/system?action=register" class="nav-link">Đăng ký</a>
-                </li>
-                <li><a href="#" class="nav-link">Đăng nhập</a></li>
+                <li><a href="${pageContext.request.contextPath}/system?action=update" class="nav-link">Cập nhật</a></li>
+                <li><a href="${pageContext.request.contextPath}/users?action=register" class="nav-link">Đăng ký</a></li>
+                <li><a href="${pageContext.request.contextPath}/users?action=login" class="nav-link">Đăng nhập</a></li>
             </ul>
         </div>
     </div>

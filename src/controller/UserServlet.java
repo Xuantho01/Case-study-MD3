@@ -39,7 +39,7 @@ public class UserServlet extends HttpServlet {
                 }
                 break;
             case "login":
-                isLogin(request, response);
+                checkLogin(request, response);
                 break;
             case "updateUser":
                 break;
@@ -50,7 +50,7 @@ public class UserServlet extends HttpServlet {
         }
     }
     private int count = 0;
-    public void isLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         List<User> userList = this.user.findAll();
@@ -81,6 +81,13 @@ public class UserServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+    }
+    public boolean isLogin() throws IOException, ServletException {
+        if (count!= 0){
+            return true;
+        }
+        this.count = 0;
+        return false;
     }
 
     private void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
