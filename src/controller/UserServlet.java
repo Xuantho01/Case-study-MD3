@@ -39,7 +39,7 @@ public class UserServlet extends HttpServlet {
                 }
                 break;
             case "login":
-                login(request, response);
+                isLogin(request, response);
                 break;
             case "updateUser":
                 break;
@@ -49,13 +49,13 @@ public class UserServlet extends HttpServlet {
                 break;
         }
     }
-
-    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private int count = 0;
+    public void isLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         List<User> userList = this.user.findAll();
         User user = null;
-        int count = 0;
+
         RequestDispatcher dispatcher;
         for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i).getUserName().equals(userName) && userList.get(i).getPassWord().equals(password)) {
@@ -81,7 +81,6 @@ public class UserServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        count = 0;
     }
 
     private void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {

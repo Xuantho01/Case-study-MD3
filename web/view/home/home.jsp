@@ -168,6 +168,8 @@
 <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                         </div>
                         <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Chi tiết sản phẩm</a></button>
+                        <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Mua Ngay</a></button>
+
                         <button class="btn btn-primary">Mua ngay</button>
                     </div>
                 </div>
@@ -183,10 +185,9 @@
                                 </h4>
                                 <h5>$${product.getPrice()}</h5>
                                 <h5>${product.getDiscount()}%</h5>
-                                    <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
-                            <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Chi tiết sản phẩm</a></button>
-                            <button class="btn btn-primary">Mua ngay</button>
+                            <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">chi tiết sản phẩm</a></button>
+                            <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Mua Ngay</a></button>
                         </div>
                     </div>
                 </c:forEach>

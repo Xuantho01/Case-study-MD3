@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
                 <button type="button" class="btn  btn-primary">
-                    <a href="#" class="nav-link">Đăng nhập</a>
+                    <a href="#" class="nav-link">Trang chủ</a>
                 </button>
                 <button type="button" class="btn btn-primary">
                     <a href="#" class="nav-link">Đăng ký</a>

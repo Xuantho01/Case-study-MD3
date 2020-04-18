@@ -218,7 +218,9 @@
                                     <span class="color blue"></span>
                                 </h5>
                                 <div class="action">
-                                    <button class="add-to-cart btn btn-default" type="button">Buy now</button>
+                                    <button class="add-to-cart btn btn-default" type="button">
+                                        <a href="/oder?action=oder&productCode=${products.getProductCode()}">Mua ngay</a>
+                                    </button>
                                     <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
                                     </button>
                                 </div>
