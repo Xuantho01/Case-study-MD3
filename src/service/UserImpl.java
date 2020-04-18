@@ -28,7 +28,6 @@ public class UserImpl implements IUser {
                 String address = resultSet.getString("address");
                 int numberOfPurchases = Integer.parseInt(resultSet.getString("numOfPurchases"));
                 String role = resultSet.getString("Role");
-
                 User user = new User(userName,password,name,sex,phoneNumber,
                         Email,birthday,address,numberOfPurchases,role);
                 list.add(user);
@@ -59,17 +58,57 @@ public class UserImpl implements IUser {
     }
 
     @Override
-    public User findById(int id) {
-        return null;
+    public User findByUserName(String userName) {
+        User user = null;
+        try (PreparedStatement statement = Connect.getConnection().prepareStatement("select * from user where userName = ?")){
+            statement.setString(1,userName);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String password = resultSet.getString("password");
+                String name = resultSet.getString("name");
+                String sex = resultSet.getString("sex");
+                int phoneNumber = resultSet.getInt("password");
+                String Email = resultSet.getString("Email");
+                Date birthday = resultSet.getDate("birthday");
+                String address = resultSet.getString("address");
+                int numOfPurchases = resultSet.getInt("numOfPurchases");
+                String Role = resultSet.getString("Role");
+                user = new User(userName,password,name,sex,phoneNumber,Email,birthday,address,numOfPurchases,Role);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     @Override
-    public boolean update(int id, User product) throws SQLException {
-        return false;
+    public void update(String userName, User user) throws SQLException {
+        try(PreparedStatement statement = Connect.getConnection().prepareStatement(
+       "update user set userName = ?, password = ?, name = ?, sex = ?, phoneNumber = ?,Email= ?, birthday = ?, address = ?, numOfPurchases = ?, Role = ? where userName =?")) {
+            statement.setString(1,userName);
+            statement.setString(2,user.getPassWord());
+            statement.setString(3,user.getName());
+            statement.setString(4,user.getSex());
+            statement.setInt(5,user.getPhoneNumber());
+            statement.setString(6,user.getEmail());
+            statement.setDate(7,user.getBirthday());
+            statement.setString(8,user.getAddress());
+            statement.setInt(9,user.getNumOfPurchases());
+            statement.setString(10,user.getRole());
+            statement.executeUpdate();
+        }catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
-    public boolean remove(int id) throws SQLException {
-        return false;
+    public void remove(String userName) throws SQLException {
+        try(PreparedStatement statement = Connect.getConnection().prepareStatement("delete from user where userName = ?")) {
+            statement.setString(1,userName);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

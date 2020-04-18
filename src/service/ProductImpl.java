@@ -75,7 +75,7 @@ public class ProductImpl implements IProduct {
                 float Price = resultSet.getFloat(4);
                 int amount = resultSet.getInt(5);
                 String supplier = resultSet.getString(6);
-                String typeCode = getParameter(resultSet, 7);
+                String typeCode = resultSet.getString(7);
                 String image = resultSet.getString(8);
                 int amountImport = resultSet.getInt(9);
                 int amountExport = resultSet.getInt(10);

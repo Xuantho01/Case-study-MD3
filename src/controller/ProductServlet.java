@@ -196,7 +196,9 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
+    private void showHomeFormAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        findAllProduct(request, response, "view/home/themeAdmin.jsp");
+    }
     private void showNextPage(HttpServletRequest request, HttpServletResponse response) {
         findAllProduct(request, response, "view/home/nextPage.jsp");
     }
@@ -208,8 +210,8 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-    private void showHomeFormAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        findAllProduct(request, response, "view/home/themeAdmin.jsp");
-    }
+//    private void showHomeFormAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        findAllProduct(request, response, "view/home/themeAdmin.jsp");
+//    }
 
 }

@@ -10,9 +10,9 @@ public interface IUser {
 
     public void save(User user) throws SQLException;
 
-    public User findById(int id);
+    public User findByUserName(String userName);
 
-    public boolean update(int id, User product) throws SQLException;
+    public void update(String userName, User user) throws SQLException;
 
-    public boolean remove(int id) throws SQLException;
+    public void remove(String userName) throws SQLException;
 }

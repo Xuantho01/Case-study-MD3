@@ -26,7 +26,7 @@
             <ul class="navbar-nav ml-auto">
                 <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
                 <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
-                <li><a href="#" class="nav-link">Đăng xuất</a></li>
+                <li><a href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}" class="nav-link">${users.getName()}</a></li>
             </ul>
         </div>
     </div>

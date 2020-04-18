@@ -162,13 +162,12 @@
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
             <div class="card">
-                <c:forEach items='${requestScope["products"]}' var="product">
                 <div class="container-fluid">
                     <div class="wrapper row">
 
                             <div class="preview col-md-6">
                                 <div class="preview-pic tab-content">
-                                    <div class="tab-pane active" id="pic-1"><img src="${product.getImage()}"/>
+                                    <div class="tab-pane active" id="pic-1"><img src="${products.getImage()}"/>
                                     </div>
                                     <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252"/></div>
                                     <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252"/></div>
@@ -190,7 +189,7 @@
                             </div>
                             <div class="details col-md-6">
 
-                                <h3 class="product-title">${product.getProductName()}</h3>
+                                <h3 class="product-title">${products.getProductName()}</h3>
                                 <div class="rating">
                                     <div class="stars">
                                         <span class="fa fa-star checked"></span>
@@ -201,9 +200,9 @@
                                     </div>
                                     <span class="review-no">41 reviews</span>
                                 </div>
-                                <p class="product-description">${product.getImage()}</p>
-                                <h4 class="price">current price: <span>${product.getPrice()}</span></h4>
-                                <h4 class="price">Giảm giá: <span>${product.getDiscount()}</span></h4>
+                                <p class="product-description">${products.getImage()}</p>
+                                <h4 class="price">current price: <span>${products.getPrice()}</span></h4>
+                                <h4 class="price">Giảm giá: <span>${products.getDiscount()}</span></h4>
                                 <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87
                                     votes)</strong></p>
                                 <h5 class="sizes">sizes:
@@ -227,7 +226,6 @@
 
                     </div>
                     </div>
-                </c:forEach>
             </div>
         </div>
         <!-- /.row -->
