@@ -29,7 +29,7 @@ public class OderServlet extends HttpServlet {
         }
         switch (action) {
             case "oder":
-//                oderProduct(request,response);
+                userServlet.checkLogin(request, response);
                 break;
             case "login":
                 break;
@@ -49,7 +49,6 @@ public class OderServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/login.jsp");
             try {
                 dispatcher.forward(request, response);
-                userServlet.checkLogin(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
@@ -66,7 +65,8 @@ public class OderServlet extends HttpServlet {
             case "oder":
                 oderProduct(request, response);
                 break;
-            case "updateUser":
+            case "showOder":
+                oderProduct(request, response);
                 break;
             case "deleteUser":
                 break;

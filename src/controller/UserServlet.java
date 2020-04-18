@@ -30,6 +30,7 @@ public class UserServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
+//        String url = "view/home/themeAdmin.jsp";
         switch (action) {
             case "register":
                 try {
@@ -49,7 +50,10 @@ public class UserServlet extends HttpServlet {
                 break;
         }
     }
-    private int count = 0;
+
+    private int COUNT_ADMIN = 0;
+    private int COUNT_CUSTOMER = 0;
+
     public void checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
@@ -58,16 +62,25 @@ public class UserServlet extends HttpServlet {
 
         RequestDispatcher dispatcher;
         for (int i = 0; i < userList.size(); i++) {
-            if (userList.get(i).getUserName().equals(userName) && userList.get(i).getPassWord().equals(password)) {
-                count += 1;
+            if (userList.get(i).getUserName().equals(userName) && userList.get(i).getPassWord().equals(password) && userList.get(i).getRole().equals("admin")) {
+                COUNT_ADMIN += 1;
+                user = this.user.findByUserName(userName);
+            } else if (userList.get(i).getUserName().equals(userName) && userList.get(i).getPassWord().equals(password) && userList.get(i).getRole().equals("customer")) {
+                COUNT_CUSTOMER += 1;
                 user = this.user.findByUserName(userName);
             }
         }
-        if (count != 0) {
-            List<Product> products = this.product.findAll();
-            request.setAttribute("products", products);
-            request.setAttribute("users", user);
+        if (COUNT_ADMIN != 0) {
+            getProductFromList(request, user);
             dispatcher = request.getRequestDispatcher("view/home/themeAdmin.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            }
+        } else if (COUNT_CUSTOMER != 0) {
+            getProductFromList(request, user);
+            dispatcher = request.getRequestDispatcher("view/home/homeUser.jsp");
             try {
                 dispatcher.forward(request, response);
             } catch (ServletException e) {
@@ -76,17 +89,24 @@ public class UserServlet extends HttpServlet {
         } else {
             try {
                 dispatcher = request.getRequestDispatcher("view/home/home.jsp");
-                dispatcher.forward(request,response);
+                dispatcher.forward(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
+    private void getProductFromList(HttpServletRequest request, User user) {
+        List<Product> products = this.product.findAll();
+        request.setAttribute("products", products);
+        request.setAttribute("users", user);
+    }
     public boolean isLogin() throws IOException, ServletException {
-        if (count!= 0){
+        if (COUNT_ADMIN != 0 || COUNT_CUSTOMER != 0){
             return true;
         }
-        this.count = 0;
+        this.COUNT_ADMIN = 0;
+        this.COUNT_CUSTOMER = 0;
         return false;
     }
 

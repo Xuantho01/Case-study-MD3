@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/forHome/styleHome.css">
     <link rel="stylesheet" href="../../css/product/detail.css">
+    <link rel="stylesheet" href="../../css/user/oder.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Product Detail</title>
@@ -169,110 +170,94 @@
                                     <legend style="text-align: center">Mua hàng</legend>
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_id">Mã sản
+                                        <label class="col-lg-12 col-md-6 col-md-4 control-label">Mã sản
                                             phẩm</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="product_id" name="productCode"
-                                                   class="form-control input-md" required="" placeholder="Mã sản phẩm"
-                                                   type="text"  value="${requestScope["products"].getProductCode()}">
+                                            ${requestScope["products"].getProductCode()}
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_name">Tên sản
+                                        <label class="col-lg-12 col-md-6 col-md-4 control-label">Tên sản
                                             phẩm</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="product_name" name="productName"
-                                                   class="form-control input-md" required="" type="text"
-                                                   value="${requestScope["products"].getProductName()}">
+                                            ${requestScope["products"].getProductName()}
                                         </div>
                                     </div>
                                     <!-- Select Basic -->
                                     <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_categorie">Gảm
+                                        <label class="col-lg-12 col-md-6 col-md-4 control-label">Gảm
                                             giá</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="product_categorie" name="Discount" class="form-control" type="number"
-                                                   placeholder="%" value="${requestScope["products"].getDiscount()}">
+                                            ${requestScope["products"].getDiscount()}
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="available_quantity">Giá
+                                        <label class="col-lg-12 col-md-6 col-md-4 control-label">Giá
                                             bán</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="available_quantity" name="Price" placeholder="Giá bán"
-                                                   class="form-control input-md" required="" type="text"
-                                                   value="${requestScope["products"].getPrice()}">
-
+                                            ${requestScope["products"].getPrice()}
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
                                     <div class="form-group">
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_weight">Số
-                                            lượng</label>
+                                            lượng mua</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
                                             <input id="product_weight" name="amount" placeholder="Số lượng"
-                                                   class="form-control input-md" required="" type="text"
-                                                   value="${requestScope["products"].getAmount()}">
-
+                                                   class="form-control input-md" required="" type="text">
+<%--                                            value="${requestScope["products"].getAmount()}"--%>
                                         </div>
                                     </div>
-
                                     <!-- Textarea -->
                                     <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_description">Nhà
+                                        <label class="col-lg-12 col-md-6 col-md-4 control-label">Nhà
                                             cung cấp</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input class="form-control" id="product_description" placeholder="Nhà cung cấp"
-                                                   name="supplier" type="text"
-                                                   value="${requestScope["products"].getSupplier()}">
+                                            ${requestScope["products"].getSupplier()}
                                         </div>
                                     </div>
 
                                     <!-- Textarea -->
                                     <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_name_fr">Mã
+                                        <label class="col-lg-12 col-md-6 col-md-4 control-label">Mã
                                             loại</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input class="form-control" id="product_name_fr"
-                                                   name="typeCode" type="text"
-                                                   value="${requestScope["products"].getTypeCode()}">
+                                            ${requestScope["products"].getTypeCode()}
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số
-                                            lượng nhập</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="percentage_discount" name="amountImport"
-                                                   placeholder="số lượng nhập" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getAmountImport()}">
-                                        </div>
-                                    </div>
+<%--                                    <div class="form-group">--%>
+<%--                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số--%>
+<%--                                            lượng nhập</label>--%>
+<%--                                        <div class="col-lg-12 col-md-6 col-md-4">--%>
+<%--                                            <input id="percentage_discount" name="amountImport"--%>
+<%--                                                   placeholder="số lượng nhập" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="${requestScope["products"].getAmountImport()}">--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
                                     <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số
-                                            lượng xuất</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="export" name="AmountExport"
-                                                   placeholder="số lượng nhập" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getAmountExport()}">
-                                        </div>
-                                    </div>
+<%--                                    <div class="form-group">--%>
+<%--                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số--%>
+<%--                                            lượng xuất</label>--%>
+<%--                                        <div class="col-lg-12 col-md-6 col-md-4">--%>
+<%--                                            <input id="export" name="AmountExport"--%>
+<%--                                                   placeholder="số lượng nhập" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="${requestScope["products"].getAmountExport()}">--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="stock_alert">Mô tả sản
+                                        <label class="col-lg-12 col-md-6 col-md-4 control-label">Mô tả sản
                                             phẩm</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="stock_alert" name="description" placeholder="mô tả"
-                                                   class="form-control input-md" required="" type="text"
-                                                   value="${requestScope["products"].getDescription()}">
+                                            ${requestScope["products"].getDescription()}
                                         </div>
                                     </div>
                                     <!-- Button -->
