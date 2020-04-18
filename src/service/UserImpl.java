@@ -26,7 +26,7 @@ public class UserImpl implements IUser {
                 String Email = resultSet.getString("Email");
                 Date birthday = resultSet.getDate("birthday");
                 String address = resultSet.getString("address");
-                String numberOfPurchases = resultSet.getString("numOfPurchases");
+                int numberOfPurchases = Integer.parseInt(resultSet.getString("numOfPurchases"));
                 String role = resultSet.getString("Role");
 
                 User user = new User(userName,password,name,sex,phoneNumber,
@@ -41,7 +41,21 @@ public class UserImpl implements IUser {
 
     @Override
     public void save(User user) throws SQLException {
-
+        try (PreparedStatement statement = Connect.getConnection().prepareStatement("insert into user value (?,?,?,?,?,?,?,?,?,?)")){
+            statement.setString(1,user.getUserName());
+            statement.setString(2,user.getPassWord());
+            statement.setString(3,user.getName());
+            statement.setString(4,user.getSex());
+            statement.setInt(5,user.getPhoneNumber());
+            statement.setString(6,user.getEmail());
+            statement.setDate(7,user.getBirthday());
+            statement.setString(8,user.getAddress());
+            statement.setInt(9,user.getNumOfPurchases());
+            statement.setString(10,user.getRole());
+            statement.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override

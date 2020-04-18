@@ -11,7 +11,7 @@ public class User {
     private String email;
     private Date birthday;
     private String address;
-    private String numOfPurchases;
+    private int numOfPurchases;
     private String role;
 
     public User() {
@@ -19,7 +19,7 @@ public class User {
 
     public User(String userName, String passWord, String name, String sex,
                 int phoneNumber, String email, Date birthday, String address,
-                String numOfPurchases, String role){
+                int numOfPurchases, String role){
         this.userName = userName;
         this.passWord = passWord;
         this.name = name;
@@ -96,11 +96,11 @@ public class User {
         this.address = address;
     }
 
-    public String getNumOfPurchases() {
+    public int getNumOfPurchases() {
         return numOfPurchases;
     }
 
-    public void setNumOfPurchases(String numOfPurchases) {
+    public void setNumOfPurchases(int numOfPurchases) {
         this.numOfPurchases = numOfPurchases;
     }
 

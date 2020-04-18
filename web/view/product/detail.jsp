@@ -12,6 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/forHome/styleHome.css">
+    <link rel="stylesheet" href="../../css/product/detail.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
@@ -27,7 +33,9 @@
                 <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
                 <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
                 <li><a href="#" class="nav-link">Cập nhật</a></li>
-                <li><a href="#" class="nav-link">Đăng xuất</a></li>
+                <li><a href="${pageContext.request.contextPath}/system?action=register" class="nav-link">Đăng ký</a>
+                </li>
+                <li><a href="#" class="nav-link">Đăng nhập</a></li>
             </ul>
         </div>
     </div>
@@ -153,128 +161,96 @@
         </div>
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
-            <div class="row">
-                <div class="container col-lg-12 col-md-6">
-                    <form method="post" class="form-horizontal">
-                        <fieldset>
-                            <!-- Form Name -->
-                            <legend style="text-align: center">SẢN PHẨM MỚI</legend>
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_id">Mã sản
-                                    phẩm</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="product_id" name="productCode" placeholder="Mã sản phẩm"
-                                           class="form-control input-md" required="" type="text">
+            <div class="card">
+                <c:forEach items='${requestScope["products"]}' var="product">
+                <div class="container-fluid">
+                    <div class="wrapper row">
+
+                            <div class="preview col-md-6">
+                                <div class="preview-pic tab-content">
+                                    <div class="tab-pane active" id="pic-1"><img src="${product.getImage()}"/>
+                                    </div>
+                                    <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252"/></div>
+                                    <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252"/></div>
+                                    <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252"/></div>
+                                    <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252"/></div>
+                                </div>
+                                <ul class="preview-thumbnail nav nav-tabs">
+                                    <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
+                                            src="http://placekitten.com/200/126"/></a></li>
+                                    <li><a data-target="#pic-2" data-toggle="tab"><img
+                                            src="http://placekitten.com/200/126"/></a></li>
+                                    <li><a data-target="#pic-3" data-toggle="tab"><img
+                                            src="http://placekitten.com/200/126"/></a></li>
+                                    <li><a data-target="#pic-4" data-toggle="tab"><img
+                                            src="http://placekitten.com/200/126"/></a></li>
+                                    <li><a data-target="#pic-5" data-toggle="tab"><img
+                                            src="http://placekitten.com/200/126"/></a></li>
+                                </ul>
+                            </div>
+                            <div class="details col-md-6">
+
+                                <h3 class="product-title">${product.getProductName()}</h3>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <span class="review-no">41 reviews</span>
+                                </div>
+                                <p class="product-description">${product.getImage()}</p>
+                                <h4 class="price">current price: <span>${product.getPrice()}</span></h4>
+                                <h4 class="price">Giảm giá: <span>${product.getDiscount()}</span></h4>
+                                <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87
+                                    votes)</strong></p>
+                                <h5 class="sizes">sizes:
+                                    <span class="size" data-toggle="tooltip" title="small">35</span>
+                                    <span class="size" data-toggle="tooltip" title="medium">36</span>
+                                    <span class="size" data-toggle="tooltip" title="large">37</span>
+                                    <span class="size" data-toggle="tooltip" title="xtra large">38</span>
+                                </h5>
+                                <h5 class="colors">colors:
+                                    <span class="color orange not-available" data-toggle="tooltip"
+                                          title="Not In store"></span>
+                                    <span class="color green"></span>
+                                    <span class="color blue"></span>
+                                </h5>
+                                <div class="action">
+                                    <button class="add-to-cart btn btn-default" type="button">Buy now</button>
+                                    <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
+                                    </button>
                                 </div>
                             </div>
 
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_name">Tên sản
-                                    phẩm</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="product_name" name="productName" placeholder="Tên sản phẩm"
-                                           class="form-control input-md" required="" type="text">
-                                </div>
-                            </div>
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_categorie">Gảm
-                                    giá</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="product_categorie" name="Discount" class="form-control" type="number" placeholder="%">
-                                </div>
-                            </div>
-
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="available_quantity">Giá
-                                    bán</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="available_quantity" name="Price" placeholder="Giá bán"
-                                           class="form-control input-md" required="" type="text">
-
-                                </div>
-                            </div>
-
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_weight">Số
-                                    lượng</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="product_weight" name="amount" placeholder="Số lượng"
-                                           class="form-control input-md" required="" type="text">
-
-                                </div>
-                            </div>
-
-                            <!-- Textarea -->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_description">Nhà
-                                    cung cấp</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input class="form-control" id="product_description" placeholder="Nhà cung cấp"
-                                              name="supplier" type="text">
-                                </div>
-                            </div>
-
-                            <!-- Textarea -->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_name_fr">Mã
-                                    loại</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input class="form-control" id="product_name_fr"
-                                              name="typeCode" type="text">
-                                </div>
-                            </div>
-
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số
-                                    lượng nhập</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="percentage_discount" name="amountImport"
-                                           placeholder="số lượng nhập" class="form-control input-md" required=""
-                                           type="text">
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số
-                                    lượng xuất</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="export" name="AmountExport"
-                                           placeholder="số lượng nhập" class="form-control input-md" required=""
-                                           type="text">
-                                </div>
-                            </div>
-
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="stock_alert">Mô tả sản
-                                    phẩm</label>
-                                <div class="col-lg-12 col-md-6 col-md-4">
-                                    <input id="stock_alert" name="description" placeholder="mô tả"
-                                           class="form-control input-md" required="" type="text">
-                                </div>
-                            </div>
-                            <!-- Button -->
-                            <div class="form-group">
-                                <div class="col-md-4">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Tạo mới</button>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+                    </div>
+                    </div>
+                </c:forEach>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.col-lg-9 -->
+        <!-- /.row -->
     </div>
-    <!-- /.row -->
+    <!-- /.col-lg-9 -->
 </div>
+<!-- /.row -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/system?action=home">1</a>
+        </li>
+        <li class="page-item"><a class="page-link"
+                                 href="${pageContext.request.contextPath}/system?action=nextPage">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">

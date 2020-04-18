@@ -14,7 +14,7 @@
     <title>shoes.org</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/forHome/styleHome.css">
@@ -43,75 +43,75 @@
     </div>
 </nav>
 <div class="container">
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" method="post">
         <h2>Registration</h2>
         <div class="form-group">
-            <label for="firstName" class="col-sm-3 control-label">First Name</label>
+            <label for="firstName" class="col-sm-3 control-label">Họ tên</label>
             <div class="col-sm-9">
-                <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus name="name">
             </div>
         </div>
         <div class="form-group">
-            <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+            <label for="lastName" class="col-sm-3 control-label">tên đăng nhập</label>
             <div class="col-sm-9">
-                <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus name="userName">
             </div>
         </div>
         <div class="form-group">
             <label for="email" class="col-sm-3 control-label">Email* </label>
             <div class="col-sm-9">
-                <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+                <input type="email" id="email" placeholder="Email" class="form-control" name= "Email">
             </div>
         </div>
         <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">Password*</label>
+            <label for="password" class="col-sm-3 control-label">Mật Khẩu*</label>
             <div class="col-sm-9">
-                <input type="password" id="password" placeholder="Password" class="form-control">
+                <input type="password" id="password" placeholder="Password" class="form-control" name="password">
             </div>
         </div>
         <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
+            <label for="password" class="col-sm-3 control-label">Xác nhận mật khẩu*</label>
             <div class="col-sm-9">
                 <input type="password" id="passwordConfirm" placeholder="Password" class="form-control">
             </div>
         </div>
         <div class="form-group">
-            <label for="birthDate" class="col-sm-3 control-label">Date of Birth*</label>
+            <label for="birthDate" class="col-sm-3 control-label">Ngày sinh*</label>
             <div class="col-sm-9">
-                <input type="date" id="birthDate" class="form-control">
+                <input type="date" id="birthDate" class="form-control" name="birthday">
             </div>
         </div>
         <div class="form-group">
-            <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+            <label for="phoneNumber" class="col-sm-3 control-label">Số điện thoại </label>
             <div class="col-sm-9">
-                <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control">
+                <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control" name="phoneNumber">
                 <span class="help-block">Your phone number won't be disclosed anywhere </span>
             </div>
         </div>
         <div class="form-group">
-            <label for="Height" class="col-sm-3 control-label">Height* </label>
+            <label for="lastName" class="col-sm-3 control-label">Số lượng mua</label>
             <div class="col-sm-9">
-                <input type="number" id="height" placeholder="Please write your height in centimetres" class="form-control">
+                <input type="text" id="Purchases" placeholder="số lượng mua" class="form-control" autofocus name="numOfPurchases">
             </div>
         </div>
         <div class="form-group">
-            <label for="weight" class="col-sm-3 control-label">Weight* </label>
+            <label for="lastName" class="col-sm-3 control-label">Loại tài khoản</label>
             <div class="col-sm-9">
-                <input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">
+                <input type="text" id="Role" placeholder="loại tài khoản" class="form-control" autofocus name="Role">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-3">Gender</label>
+            <label class="control-label col-sm-3">Giới tính</label>
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" id="femaleRadio" value="Female">Female
+                            <input type="radio" id="femaleRadio" value="Nữ" name="sex">Nữ
                         </label>
                     </div>
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" id="maleRadio" value="Male">Male
+                            <input type="radio" id="maleRadio" value="Nam" name="sex">Nam
                         </label>
                     </div>
                 </div>
@@ -119,10 +119,10 @@
         </div> <!-- /.form-group -->
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
-                <span class="help-block">*Required fields</span>
+                <span class="help-block">*Yêu cầu nhập thông tin</span>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
     </form> <!-- /form -->
 </div> <!-- ./container -->
 <footer class="py-5 bg-dark">

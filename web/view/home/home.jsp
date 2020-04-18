@@ -8,7 +8,7 @@
     <title>shoes.org</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/forHome/styleHome.css">
@@ -27,7 +27,7 @@
                 <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
                 <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
                 <li><a href="#" class="nav-link">Cập nhật</a></li>
-                <li><a href="${pageContext.request.contextPath}/system?action=register" class="nav-link">Đăng ký</a></li>
+                <li><a href="${pageContext.request.contextPath}/users?action=register" class="nav-link">Đăng ký</a></li>
                 <li><a href="#" class="nav-link">Đăng nhập</a></li>
             </ul>
         </div>
@@ -167,6 +167,7 @@
                             <h5>${product.getDiscount()}%</h5>
 <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                         </div>
+                        <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Chi tiết sản phẩm</a></button>
                         <button class="btn btn-primary">Mua ngay</button>
                     </div>
                 </div>
@@ -184,6 +185,7 @@
                                 <h5>${product.getDiscount()}%</h5>
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
+                            <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}">Chi tiết sản phẩm</a></button>
                             <button class="btn btn-primary">Mua ngay</button>
                         </div>
                     </div>

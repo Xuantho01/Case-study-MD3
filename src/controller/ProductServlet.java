@@ -130,18 +130,30 @@ public class ProductServlet extends HttpServlet {
             case "update":
                 showUpdateForm(request,response);
                 break;
-            case "register":
-                showRegisterForm(request, response);
-                break;
             case "nextPage":
                 showNextPage(request,response);
                 break;
             case "homeAdmin":
                 showHomeFormAdmin(request, response);
                 break;
+            case "detail":
+                showDetailProduct(request,response);
+                break;
             default:
                 showHome(request,response);
                 break;
+        }
+    }
+
+    private void showDetailProduct(HttpServletRequest request, HttpServletResponse response) {
+        String productCode = request.getParameter("productCode");
+        Product products = this.product.findByProductCode(productCode);
+        request.setAttribute("products",products);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/detail.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -196,15 +208,8 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-    private void showRegisterForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/register.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
-    }
     private void showHomeFormAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         findAllProduct(request, response, "view/home/themeAdmin.jsp");
     }
+
 }
