@@ -1,6 +1,7 @@
 package service;
 
 import model.Oder;
+import model.Product;
 import service.Interface.IOder;
 
 import java.sql.Date;
@@ -39,13 +40,24 @@ public class OderImpl implements IOder {
     }
 
     @Override
-    public Oder findById(int id) {
+    public Oder findByUserName(String userName) {
+
         return null;
     }
 
     @Override
-    public boolean update(int id, Oder product) throws SQLException {
-        return false;
+    public void update(Product product) throws SQLException {
+        try (PreparedStatement statement = Connect.getConnection().prepareStatement(
+                "insert into oder (orderCode, userName, productList, totalAmount, totalPrice) value (?,?,?,?,?)")){
+            statement.setString(1, product.getOderCode());
+            statement.setString(2, product.getUserName());
+            statement.setString(3, product.getProductCode());
+            statement.setInt(4, product.getAmount());
+            statement.setFloat(5, product.getAmount()*product.getPrice());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

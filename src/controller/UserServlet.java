@@ -80,12 +80,7 @@ public class UserServlet extends HttpServlet {
             }
         } else if (COUNT_CUSTOMER != 0) {
             getProductFromList(request, user);
-            dispatcher = request.getRequestDispatcher("view/home/homeUser.jsp");
-            try {
-                dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            }
+            showUserHome(request,response);
         } else {
             try {
                 dispatcher = request.getRequestDispatcher("view/home/home.jsp");
@@ -108,6 +103,14 @@ public class UserServlet extends HttpServlet {
         this.COUNT_ADMIN = 0;
         this.COUNT_CUSTOMER = 0;
         return false;
+    }
+    public void showUserHome(HttpServletRequest request, HttpServletResponse response){
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/home/homeUser.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -151,7 +154,8 @@ public class UserServlet extends HttpServlet {
             case "login":
                 showLogin(request, response);
                 break;
-            case "adminHome":
+            case "userHome":
+                showUserHome(request, response);
                 break;
             default:
                 break;

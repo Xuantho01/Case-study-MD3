@@ -12,6 +12,33 @@ public class Product {
     private int amountImport;
     private int amountExport;
     private String description;
+    private String oderCode;
+    private String userName;
+
+    public String getOderCode() {
+        return oderCode;
+    }
+
+    public void setOderCode(String oderCode) {
+        this.oderCode = oderCode;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Product(String productCode, float price, float discount, int amount, String oderCode, String userName) {
+        this.productCode = productCode;
+        this.price = price;
+        this.discount = discount;
+        this.amount = amount;
+        this.oderCode = oderCode;
+        this.userName = userName;
+    }
 
     public Product(String productCode, String productName, float price, float discount, int amount,
                    String supplier, String typeCode, int amountImport, int amountExport,
@@ -27,6 +54,7 @@ public class Product {
         this.amountExport = amountExport;
         this.description = description;
     }
+
 
     public Product() {
     }

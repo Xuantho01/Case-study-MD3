@@ -166,7 +166,7 @@
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
                             <div>
-                                <button class="btn btn-primary"><a href="/oder?action=showOder&productCode=${product.getProductCode()}">Mua ngay</a></button>
+                                <button class="btn btn-primary"><a href="/oder?action=oder&productCode=${product.getProductCode()}">Mua ngay</a></button>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
                             <div>
-                                <button class="btn btn-primary"><a href="/oder?action=showOder&productCode=${product.getProductCode()}">Mua ngay</a></button>
+                                <button class="btn btn-primary"><a href="/oder?action=oder&productCode=${product.getProductCode()}">Mua ngay</a></button>
                             </div>
                         </div>
                     </div>

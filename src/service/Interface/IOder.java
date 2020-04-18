@@ -1,6 +1,7 @@
 package service.Interface;
 
 import model.Oder;
+import model.Product;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,9 +11,9 @@ public interface IOder {
 
     public void save(Oder oder) throws SQLException;
 
-    public Oder findById(int id);
+    public Oder findByUserName(String userName);
 
-    public boolean update(int id, Oder product) throws SQLException;
+    public void update(Product product) throws SQLException;
 
     public boolean remove(int id) throws SQLException;
 }

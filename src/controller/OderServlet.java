@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/oder")
 public class OderServlet extends HttpServlet {
@@ -31,15 +32,31 @@ public class OderServlet extends HttpServlet {
             case "oder":
                 userServlet.checkLogin(request, response);
                 break;
-            case "login":
-                break;
-            case "updateUser":
+            case "updateOder":
+                try {
+                    updateOderOfUser(request,response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "deleteUser":
                 break;
             default:
                 break;
         }
+    }
+
+    private void updateOderOfUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String oderCode = request.getParameter("oderCode");
+        String userName = request.getParameter("userName");
+        String productCode = request.getParameter("productCode");
+        int amount = Integer.parseInt(request.getParameter("Price"));
+        float Discount = Float.parseFloat(request.getParameter("Discount"));
+        float Price = Float.parseFloat(request.getParameter("Price"));
+
+        Product product = new Product(productCode,  Price,  Discount,  amount,  oderCode,  userName);
+        this.oder.update(product);
+        showOderForm(request, response);
     }
 
     private void oderProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -54,7 +71,6 @@ public class OderServlet extends HttpServlet {
             }
         }
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         vietKey(request, response);
         String action = request.getParameter("action");
@@ -65,9 +81,8 @@ public class OderServlet extends HttpServlet {
             case "oder":
                 oderProduct(request, response);
                 break;
-            case "showOder":
-                oderProduct(request, response);
-                break;
+//            case "updateOder":
+//                break;
             case "deleteUser":
                 break;
             case "login":
@@ -90,6 +105,7 @@ public class OderServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 
     private void vietKey(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
