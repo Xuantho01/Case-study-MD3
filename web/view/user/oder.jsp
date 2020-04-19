@@ -39,7 +39,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/users?action=userInfor&userName=${users.getUserName()}">Thông tin</a>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                        <form action="LogoutCustomer" method="post">
+                            <input type="submit" value="Đăng xuất">
+                        </form>
                     </div>
                 </div>
                 </li>

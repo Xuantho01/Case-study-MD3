@@ -23,14 +23,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
-            <ul class="navbar-nav ml-auto">
-                <button type="button" class="btn  btn-primary">
-                    <a href="#" class="nav-link">Đăng nhập</a>
-                </button>
-                <button type="button" class="btn btn-primary">
-                    <a href="#" class="nav-link">Đăng ký</a>
-                </button>
-            </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
+                    <li><a href="#" class="nav-link">Cập nhật</a></li>
+                    <li><a href="${pageContext.request.contextPath}/users?action=register" class="nav-link">Đăng ký</a></li>
+                    <li><a href="${pageContext.request.contextPath}/users?action=login" class="nav-link">Đăng nhập</a></li>
+                </ul>
         </div>
     </div>
 </nav>

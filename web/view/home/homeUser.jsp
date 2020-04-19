@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="../../css/forHome/styleHomeAdmin.css">
 </head>
 <body>
+<%--<% if (request.getAttribute("users")==null){--%>
+<%--    response.sendRedirect("view/user/login.jsp");--%>
+<%--}%>--%>
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a href="#" class="navbar-branch">
@@ -24,7 +27,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
-
                 <%--            need to fix--%>
                 <li><a href="${pageContext.request.contextPath}/oder?action=userHome&userName=${users.getUserName()}"
                        class="nav-link">Trang chủ</a></li>
@@ -38,7 +40,10 @@
                             <a class="dropdown-item"
                                href="${pageContext.request.contextPath}/users?action=userInfor&userName=${users.getUserName()}">Thông
                                 tin</a>
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
+<%--                            add new--%>
+                            <form action="Logout" method="post">
+                                <input type="submit" value="Đăng xuất">
+                            </form>
                         </div>
                     </div>
                 </li>

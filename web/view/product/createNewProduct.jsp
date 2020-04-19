@@ -26,9 +26,23 @@
             <ul class="navbar-nav ml-auto">
                 <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
                 <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
-                <li><a href="#" class="nav-link">Cập nhật</a></li>
-                <li><a href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}" class="nav-link">${users.getName()}</a></li>
-                <li><a href="#" class="nav-link">Đăng xuất</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ${users.getName()}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/users?action=userInfor&userName=${users.getUserName()}">Thông
+                                tin</a>
+                            <%--                            add new--%>
+                            <form action="Logout" method="post">
+                                <input type="submit" value="Đăng xuất">
+                            </form>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
