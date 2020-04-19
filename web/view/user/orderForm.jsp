@@ -38,7 +38,7 @@
                             ${users.getName()}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}">Thông tin</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/users?action=userInfor&userName=${users.getUserName()}">Thông tin</a>
                             <a class="dropdown-item" href="#">Đăng xuất</a>
                         </div>
                     </div>

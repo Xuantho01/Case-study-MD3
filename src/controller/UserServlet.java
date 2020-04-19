@@ -42,7 +42,12 @@ public class UserServlet extends HttpServlet {
                 checkLogin(request, response);
                 isLogin();
                 break;
-            case "updateUser":
+            case "userInfor":
+                try {
+                    updateInforUser(request,response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "deleteUser":
                 break;
@@ -51,6 +56,27 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void updateInforUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        String sex = request.getParameter("sex");
+        int phoneNumber = Integer.parseInt(request.getParameter("phoneNumber"));
+        String Email = request.getParameter("Email");
+        Date birthday = Date.valueOf(request.getParameter("birthday"));
+        String address = request.getParameter("address");
+        int numOfPurchases = Integer.parseInt(request.getParameter("numOfPurchases"));
+        String Role = request.getParameter("Role");
+        User user = new User(userName, password, name, sex, phoneNumber,
+                Email, birthday, address, numOfPurchases, Role);
+        this.user.update(userName,user);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/updateUser.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (IOException | ServletException e) {
+            e.printStackTrace();
+        }
+    }
     public static int COUNT_ADMIN = 0;
     public static int COUNT_CUSTOMER = 0;
 
@@ -173,8 +199,23 @@ public class UserServlet extends HttpServlet {
             case "userHome":
                 showUserHome(request, response);
                 break;
+            case "userInfor":
+                showUserInformation(request, response);
+                break;
             default:
                 break;
+        }
+    }
+
+    private void showUserInformation(HttpServletRequest request, HttpServletResponse response) {
+        String userName = request.getParameter("userName");
+        User user = this.user.findByUserName(userName);
+        request.setAttribute("users",user);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/updateUser.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 

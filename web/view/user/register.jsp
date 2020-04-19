@@ -97,7 +97,7 @@
         <div class="form-group">
             <label for="lastName" class="col-sm-3 control-label">Loại tài khoản</label>
             <div class="col-sm-9">
-                <input type="text" id="Role" placeholder="loại tài khoản" class="form-control" autofocus name="Role">
+                <input type="text" id="Role" placeholder="loại tài khoản" class="form-control" autofocus name="Role" value="customer" readonly>
             </div>
         </div>
         <div class="form-group">

@@ -32,12 +32,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
-                <button type="button" class="btn  btn-primary">
-                    <a href="#" class="nav-link">Trang chủ</a>
-                </button>
-                <button type="button" class="btn btn-primary">
-                    <a href="#" class="nav-link">Đăng ký</a>
-                </button>
+                <li><a href="${pageContext.request.contextPath}/oder?action=userHome&userName=${users.getUserName()}"
+                       class="nav-link">Trang chủ</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ${users.getName()}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/users?action=userInfor&userName=${users.getUserName()}">Thông
+                                tin</a>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -106,32 +116,22 @@
             <label for="lastName" class="col-sm-3 control-label">Loại tài khoản</label>
             <div class="col-sm-9">
                 <input type="text" id="Role" placeholder="loại tài khoản" class="form-control" autofocus name="Role"
-                value="${requestScope["users"].getRole()}">
+                value="${requestScope["users"].getRole()}" readonly>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-3">Giới tính</label>
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="radio-inline">
-                            <input type="radio" id="femaleRadio" value="Nữ" name="sex">Nữ
-                        </label>
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="radio-inline">
-                            <input type="radio" id="maleRadio" value="Nam" name="sex">Nam
-                        </label>
-                    </div>
-                </div>
+            <label for="lastName" class="col-sm-3 control-label">Giới tính</label>
+            <div class="col-sm-9">
+                <input type="text" id="sex" placeholder="giới tính" class="form-control" autofocus name="sex"
+                       value="${requestScope["users"].getSex()}">
             </div>
-        </div> <!-- /.form-group -->
+        </div>
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
                 <span class="help-block">*Yêu cầu nhập thông tin</span>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+        <button type="submit" class="btn btn-primary btn-block">Cập nhật thông tin</button>
     </form> <!-- /form -->
 </div> <!-- ./container -->
 <footer class="py-5 bg-dark">
