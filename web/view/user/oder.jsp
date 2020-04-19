@@ -31,9 +31,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
-                <li><a href="${pageContext.request.contextPath}/users?action=userHome" class="nav-link">Trang chủ</a></li>
-                <li><a href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}" class="nav-link">${users.getName()}</a></li>
-                <li><a href="#" class="nav-link">Đăng xuất</a>
+                <li><a href="${pageContext.request.contextPath}/oder?action=userHome&productCode=${products.getProductCode()}&userName=${users.getUserName()}" class="nav-link">Trang chủ</a></li>
+                <li>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ${users.getName()}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}">Thông tin</a>
+                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                    </div>
+                </div>
                 </li>
             </ul>
         </div>
@@ -171,20 +179,20 @@
                                     <div class="form-group">
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label">Mã sản
                                             phẩm</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input name="productCode"
-                                                   placeholder="mã sản phẩm" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getProductCode()}">
+                                        <div class="col-lg-12 col-md-6 col-md-4">${requestScope["products"].getProductCode()}
+<%--                                            <input name="productCode"--%>
+<%--                                                   placeholder="mã sản phẩm" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="">--%>
                                         </div>
                                     </div>
                                     <!-- Text input-->
                                     <div class="form-group">
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label">Tên sản
                                             phẩm</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input name="productName"
-                                                   placeholder="Tên sản phẩm" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getProductName()}">
+                                        <div class="col-lg-12 col-md-6 col-md-4">${requestScope["products"].getProductName()}
+<%--                                            <input name="productName"--%>
+<%--                                                   placeholder="Tên sản phẩm" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="">--%>
                                         </div>
                                     </div>
 
@@ -192,10 +200,10 @@
                                     <div class="form-group">
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label">Gảm
                                             giá</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input name="Discount"
-                                                   placeholder="Giảm giá" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getDiscount()}">
+                                        <div class="col-lg-12 col-md-6 col-md-4">${requestScope["products"].getDiscount()}
+<%--                                            <input name="Discount"--%>
+<%--                                                   placeholder="Giảm giá" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="">--%>
                                         </div>
                                     </div>
 
@@ -203,32 +211,31 @@
                                     <div class="form-group">
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label">Giá
                                             bán</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input name="Price"
-                                                   placeholder="giá bán" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getPrice()}">
+                                        <div class="col-lg-12 col-md-6 col-md-4">${requestScope["products"].getPrice()}
+<%--                                            <input name="Price"--%>
+<%--                                                   placeholder="giá bán" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="">--%>
                                         </div>
                                     </div>
 
                                     <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_weight">Số
-                                            lượng mua</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input id="product_weight" name="amount" placeholder="Số lượng"
-                                                   class="form-control input-md" required="" type="text">
-<%--                                            value="${requestScope["products"].getAmount()}"--%>
-                                        </div>
-                                    </div>
+<%--                                    <div class="form-group">--%>
+<%--                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_weight">Số--%>
+<%--                                            lượng mua</label>--%>
+<%--                                        <div class="col-lg-12 col-md-6 col-md-4">--%>
+<%--                                            <input id="product_weight" name="amount" placeholder="Số lượng"--%>
+<%--                                                   class="form-control input-md" required="" type="text">--%>
+<%--&lt;%&ndash;                                            value="${requestScope["products"].getAmount()}"&ndash;%&gt;--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
                                     <!-- Textarea -->
                                     <div class="form-group">
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label">Nhà
                                             cung cấp</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input name="supplier"
-                                                   placeholder="Nhà cung cấp" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getSupplier()}">
-
+                                        <div class="col-lg-12 col-md-6 col-md-4">${requestScope["products"].getSupplier()}
+<%--                                            <input name="supplier"--%>
+<%--                                                   placeholder="Nhà cung cấp" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="">--%>
                                         </div>
                                     </div>
 
@@ -236,10 +243,10 @@
                                     <div class="form-group">
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label">Mã
                                             loại</label>
-                                        <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input name="typeCode"
-                                                   placeholder="Loại sản phẩm" class="form-control input-md" required=""
-                                                   type="text" value="${requestScope["products"].getTypeCode()}">
+                                        <div class="col-lg-12 col-md-6 col-md-4">${requestScope["products"].getTypeCode()}
+<%--                                            <input name="typeCode"--%>
+<%--                                                   placeholder="Loại sản phẩm" class="form-control input-md" required=""--%>
+<%--                                                   type="text" value="">--%>
                                         </div>
                                     </div>
 
@@ -269,16 +276,16 @@
                                         <label class="col-lg-12 col-md-6 col-md-4 control-label">Mô tả sản
                                             phẩm</label>
                                         <div class="col-lg-12 col-md-6 col-md-4">
-                                            <input name="description"
-                                                   placeholder="mô tả" class="form-control input-md" required=""
+                                            <input name="description" placeholder="mô tả" class="form-control input-md" required=""
                                                    type="text" value="${requestScope["products"].getDescription()}">
                                         </div>
                                     </div>
                                     <!-- Button -->
                                     <div class="form-group">
-                                        <div class="col-md-4">
-                                            <button id="singlebutton" name="singlebutton" class="btn btn-primary" ><a
-                                                    href="${pageContext.request.contextPath}/oder?action=updateOder"></a>Xác nhận</button>
+                                        <div class="col-md-4 align-content-center">
+<%--                                            <button id="singlebutton" name="singlebutton" class="btn btn-primary" >--%>
+                                                <a href="${pageContext.request.contextPath}/oder?action=updateOder&productCode=${products.getProductCode()}&userName=${users.getUserName()}">thêm vào giỏ hàng</a>
+<%--                                                </button>--%>
                                         </div>
                                     </div>
                                 </fieldset>

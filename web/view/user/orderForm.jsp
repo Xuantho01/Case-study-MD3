@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/forHome/styleHome.css">
     <link rel="stylesheet" href="../../css/product/detail.css">
+    <link rel="stylesheet" href="../../css/user/oder.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Product Detail</title>
@@ -30,13 +31,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
-                <li><a href="${pageContext.request.contextPath}/oder?action=userHome&userName=${users.getUserName()}&productCode=${products.getProductCode()}" class="nav-link">Trang chủ</a></li>
+                <li><a href="${pageContext.request.contextPath}/oder?action=userHome&productCode=${products.getProductCode()}&userName=${users.getUserName()}" class="nav-link">Trang chủ</a></li>
                 <li>
                     <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             ${users.getName()}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="color: #0076ad">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}">Thông tin</a>
                             <a class="dropdown-item" href="#">Đăng xuất</a>
                         </div>
@@ -49,7 +50,6 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item">
-
             <img class="d-block w-100" src="../../images/unnamed.jpg" alt="First slide">
             <div class="carousel-caption">
                 <h1>GIÀY CHẤT</h1>
@@ -168,73 +168,130 @@
         </div>
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
-            <div class="card">
-                <div class="container-fluid">
-                    <div class="wrapper row">
+            <div class="row">
+                <div class="container col-lg-12 col-md-6">
+                    <form method="post" class="form-horizontal">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend style="text-align: center">Mua hàng</legend>
+                            <!-- Text input-->
 
-                            <div class="preview col-md-6">
-                                <div class="preview-pic tab-content">
-                                    <div class="tab-pane active" id="pic-1"><img src="${products.getImage()}"/>
-                                    </div>
-                                    <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252"/></div>
-                                    <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252"/></div>
-                                    <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252"/></div>
-                                    <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252"/></div>
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label">Mã sản
+                                    phẩm</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input name="productCode"
+                                           placeholder="mã sản phẩm" class="form-control input-md" required=""
+                                           type="text" value="${requestScope["products"].getProductCode()}">
                                 </div>
-                                <ul class="preview-thumbnail nav nav-tabs">
-                                    <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
-                                            src="http://placekitten.com/200/126"/></a></li>
-                                    <li><a data-target="#pic-2" data-toggle="tab"><img
-                                            src="http://placekitten.com/200/126"/></a></li>
-                                    <li><a data-target="#pic-3" data-toggle="tab"><img
-                                            src="http://placekitten.com/200/126"/></a></li>
-                                    <li><a data-target="#pic-4" data-toggle="tab"><img
-                                            src="http://placekitten.com/200/126"/></a></li>
-                                    <li><a data-target="#pic-5" data-toggle="tab"><img
-                                            src="http://placekitten.com/200/126"/></a></li>
-                                </ul>
                             </div>
-                            <div class="details col-md-6">
-
-                                <h3 class="product-title">${products.getProductName()}</h3>
-                                <div class="rating">
-                                    <div class="stars">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <span class="review-no">41 reviews</span>
-                                </div>
-                                <p class="product-description">${products.getImage()}</p>
-                                <h4 class="price">current price: <span>${products.getPrice()}</span></h4>
-                                <h4 class="price">Giảm giá: <span>${products.getDiscount()}</span></h4>
-                                <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87
-                                    votes)</strong></p>
-                                <h5 class="sizes">sizes:
-                                    <span class="size" data-toggle="tooltip" title="small">35</span>
-                                    <span class="size" data-toggle="tooltip" title="medium">36</span>
-                                    <span class="size" data-toggle="tooltip" title="large">37</span>
-                                    <span class="size" data-toggle="tooltip" title="xtra large">38</span>
-                                </h5>
-                                <h5 class="colors">colors:
-                                    <span class="color orange not-available" data-toggle="tooltip"
-                                          title="Not In store"></span>
-                                    <span class="color green"></span>
-                                    <span class="color blue"></span>
-                                </h5>
-                                <div class="action">
-                                    <button class="add-to-cart btn btn-default" type="button">
-                                        <a href="/oder?action=oder&productCode=${products.getProductCode()}&userName=${users.getUserName()}">Mua ngay</a>
-                                    </button>
-                                    <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
-                                    </button>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label">Tên sản
+                                    phẩm</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input name="productName"
+                                           placeholder="Tên sản phẩm" class="form-control input-md" required=""
+                                           type="text" value="${requestScope["products"].getProductName()}">
                                 </div>
                             </div>
 
-                    </div>
-                    </div>
+                            <!-- Select Basic -->
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label">Gảm
+                                    giá</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input name="Discount"
+                                           placeholder="Giảm giá" class="form-control input-md" required=""
+                                           type="text" value="${requestScope["products"].getDiscount()}">
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label">Giá
+                                    bán</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input name="Price"
+                                           placeholder="giá bán" class="form-control input-md" required=""
+                                           type="text" value="${requestScope["products"].getPrice()}">
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label" for="product_weight">Số
+                                    lượng mua</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input id="product_weight" name="amount" placeholder="Số lượng"
+                                           class="form-control input-md" required="" type="text">
+                                    <%--                                            value="${requestScope["products"].getAmount()}"--%>
+                                </div>
+                            </div>
+                            <!-- Textarea -->
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label">Nhà
+                                    cung cấp</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input name="supplier"
+                                           placeholder="Nhà cung cấp" class="form-control input-md" required=""
+                                           type="text" value="${requestScope["products"].getSupplier()}">
+
+                                </div>
+                            </div>
+
+                            <!-- Textarea -->
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label">Mã
+                                    loại</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input name="typeCode"
+                                           placeholder="Loại sản phẩm" class="form-control input-md" required=""
+                                           type="text" value="${requestScope["products"].getTypeCode()}">
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <%--                                    <div class="form-group">--%>
+                            <%--                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số--%>
+                            <%--                                            lượng nhập</label>--%>
+                            <%--                                        <div class="col-lg-12 col-md-6 col-md-4">--%>
+                            <%--                                            <input id="percentage_discount" name="amountImport"--%>
+                            <%--                                                   placeholder="số lượng nhập" class="form-control input-md" required=""--%>
+                            <%--                                                   type="text" value="${requestScope["products"].getAmountImport()}">--%>
+                            <%--                                        </div>--%>
+                            <%--                                    </div>--%>
+                            <!-- Text input-->
+                            <%--                                    <div class="form-group">--%>
+                            <%--                                        <label class="col-lg-12 col-md-6 col-md-4 control-label" for="percentage_discount">Số--%>
+                            <%--                                            lượng xuất</label>--%>
+                            <%--                                        <div class="col-lg-12 col-md-6 col-md-4">--%>
+                            <%--                                            <input id="export" name="AmountExport"--%>
+                            <%--                                                   placeholder="số lượng nhập" class="form-control input-md" required=""--%>
+                            <%--                                                   type="text" value="${requestScope["products"].getAmountExport()}">--%>
+                            <%--                                        </div>--%>
+                            <%--                                    </div>--%>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-lg-12 col-md-6 col-md-4 control-label">Mô tả sản
+                                    phẩm</label>
+                                <div class="col-lg-12 col-md-6 col-md-4">
+                                    <input name="description" placeholder="mô tả" class="form-control input-md" required=""
+                                           type="text" value="${requestScope["products"].getDescription()}">
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary" >
+                                        Xác nhận</button>
+
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
         <!-- /.row -->

@@ -24,9 +24,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
-                <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
-                <li><a href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}" class="nav-link">${users.getName()}</a></li>
-                <li><a href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}" class="nav-link">Đăng xuất</a></li>
+
+                <%--            need to fix--%>
+                <li><a href="${pageContext.request.contextPath}/oder?action=userHome&userName=${users.getUserName()}"
+                       class="nav-link">Trang chủ</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ${users.getName()}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}">Thông
+                                tin</a>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -166,7 +181,9 @@
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
                             <div>
-                                <button class="btn btn-primary"><a href="/oder?action=oder&productCode=${product.getProductCode()}">Mua ngay</a></button>
+                                <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}&userName=${users.getUserName()}">chi tiết sản phẩm</a></button>
+                                <button class="btn btn-primary"><a href="/oder?action=oder&productCode=${product.getProductCode()}&userName=${users.getUserName()}">Mua ngay</a></button>
+
                             </div>
                         </div>
                     </div>
@@ -185,7 +202,8 @@
                                     <%--                            <p class="card-text">${product.getDescription()}</p>--%>
                             </div>
                             <div>
-                                <button class="btn btn-primary"><a href="/oder?action=oder&productCode=${product.getProductCode()}">Mua ngay</a></button>
+                                <button class="btn btn-primary"><a href="/system?action=detail&productCode=${product.getProductCode()}&userName=${users.getUserName()}">chi tiết sản phẩm</a></button>
+                                <button class="btn btn-primary"><a href="/oder?action=oder&productCode=${product.getProductCode()}&userName=${users.getUserName()}">Mua ngay</a></button>
                             </div>
                         </div>
                     </div>

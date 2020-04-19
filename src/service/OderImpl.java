@@ -48,12 +48,11 @@ public class OderImpl implements IOder {
     @Override
     public void update(Product product) throws SQLException {
         try (PreparedStatement statement = Connect.getConnection().prepareStatement(
-                "insert into oder (orderCode, userName, productList, totalAmount, totalPrice) value (?,?,?,?,?)")){
-            statement.setString(1, product.getOderCode());
-            statement.setString(2, product.getUserName());
-            statement.setString(3, product.getProductCode());
-            statement.setInt(4, product.getAmount());
-            statement.setFloat(5, product.getAmount()*product.getPrice());
+                "insert into oder (userName, productList, totalAmount, totalPrice) value (?,?,?,?)")){
+            statement.setString(1, product.getUserName());
+            statement.setString(2, product.getProductCode());
+            statement.setInt(3, product.getAmount());
+            statement.setFloat(4, product.getAmount()*product.getPrice());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -58,7 +58,6 @@
                         <a href="reset.html">Forgot password?</a>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
-
                 </form>
             </div>
         </div>

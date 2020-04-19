@@ -30,7 +30,6 @@ public class UserServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
-//        String url = "view/home/themeAdmin.jsp";
         switch (action) {
             case "register":
                 try {
@@ -41,6 +40,7 @@ public class UserServlet extends HttpServlet {
                 break;
             case "login":
                 checkLogin(request, response);
+                isLogin();
                 break;
             case "updateUser":
                 break;
@@ -51,8 +51,9 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private int COUNT_ADMIN = 0;
-    private int COUNT_CUSTOMER = 0;
+    public static int COUNT_ADMIN = 0;
+    public static int COUNT_CUSTOMER = 0;
+
 
     public void checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("userName");
@@ -80,7 +81,12 @@ public class UserServlet extends HttpServlet {
             }
         } else if (COUNT_CUSTOMER != 0) {
             getProductFromList(request, user);
-            showUserHome(request,response);
+            dispatcher = request.getRequestDispatcher("view/home/homeUser.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
         } else {
             try {
                 dispatcher = request.getRequestDispatcher("view/home/home.jsp");
@@ -96,21 +102,31 @@ public class UserServlet extends HttpServlet {
         request.setAttribute("products", products);
         request.setAttribute("users", user);
     }
-    public boolean isLogin() throws IOException, ServletException {
+    public  boolean isLogin() throws IOException, ServletException {
         if (COUNT_ADMIN != 0 || COUNT_CUSTOMER != 0){
             return true;
         }
-        this.COUNT_ADMIN = 0;
-        this.COUNT_CUSTOMER = 0;
         return false;
     }
+
+    // fix thêm
     public void showUserHome(HttpServletRequest request, HttpServletResponse response){
+        String userName = request.getParameter("userName");
+        User user = this.user.findByUserName(userName);
+        request.setAttribute("users",user);
+        getProductFromList(request,user);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/home/homeUser.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("view/home/homeUser.jsp");
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException | IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
