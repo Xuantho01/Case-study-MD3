@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../../css/forHome/styleHome.css">
     <link rel="stylesheet" href="../../css/product/detail.css">
     <link rel="stylesheet" href="../../css/user/oder.css">
+    <link rel="stylesheet" href="../../css/footer/footer.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Product Detail</title>
@@ -317,12 +319,71 @@
 </nav>
 
 <!-- Footer -->
-<footer class="py-5 bg-dark">
+<div class="footer-bottom-area bg-dark-light section-padding-sm">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        <div class="row widgets footer-widgets">
+
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-widget widget-about">
+                    <h5 class="widget-title">About Us</h5>
+
+                    <p>We are a team of designers and developers that create high quality <a href="www.dkstudio.in">Readmore...</a></p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-widget widget-quick-links">
+                    <h5 class="widget-title">My Account</h5>
+                    <ul>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href="#">Advanced Search</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-widget widget-quick-links">
+                    <h5 class="widget-title">Customer Service</h5>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Compensation First</a></li>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-widget widget-contact">
+                    <h5 class="widget-title">Contact Us</h5>
+                    <ul>
+                        <li class="address">
+                            <span class="icon"><i class="fa fa-map-marker"></i></span>
+                            <p>Address : Quỳnh Lưu - Nghệ An</p>
+                        </li>
+                        <li class="phone">
+                            <span class="icon"><i class="fa fa-phone"></i></span>
+                            <p><a href="#">+91 7568 54 3012</a></p>
+                        </li>
+                        <li class="fax">
+                            <span class="icon"><i class="fa fa-fax"></i></span>
+                            <p><a href="#">+91 7568 54 3012</a></p>
+                        </li>
+                        <li class="email">
+                            <span class="icon"><i class="fa fa-envelope-o"></i></span>
+                            <p><a href="#">hoxantho95@gmail.com</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <!-- /.container -->
-</footer>
+</div>
 
 <!-- Bootstrap core JavaScript -->
 </body>

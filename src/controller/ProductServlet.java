@@ -1,6 +1,6 @@
 package controller;
 
-import model.ProcductForSearch;
+import model.ProductForSearch;
 import model.Product;
 import model.User;
 import service.Interface.IProduct;
@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/system")
@@ -104,6 +105,8 @@ public class ProductServlet extends HttpServlet {
         int AmountExport = Integer.parseInt(request.getParameter("AmountExport"));
         String description = request.getParameter("description");
 
+        setUserName(request);
+
         Product product = new Product(productCode, productName,
                 Discount,Price,amount,supplier,typeCode,amountImport,AmountExport,description);
 
@@ -121,7 +124,8 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String Male = "MaLe";
+        String Male = "Male";
+        String Female = "Female";
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -147,6 +151,10 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "Male":
                 showFlowInput(request,response, Male);
+                break;
+            case "Female":
+                showFlowInput(request,response,Female);
+                break;
             default:
                 showHome(request,response);
                 break;
@@ -200,7 +208,6 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showHome(HttpServletRequest request, HttpServletResponse response) {
-
         findAllProduct(request, response, "view/home/home.jsp");
     }
 
@@ -217,7 +224,16 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showFlowInput(HttpServletRequest request, HttpServletResponse response, String Male){
-        List<ProcductForSearch> products = this.product.findProductByInputType(Male);
+        List<Product> product = this.product.findProductByInputType(Male);
+        request.setAttribute("products",product);
+        setUserName(request);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/home/home.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void showHomeFormAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1141,7 +1141,7 @@
     <table id="290" parent="14" name="typeproduct"/>
     <table id="291" parent="14" name="user"/>
     <view id="292" parent="14" name="productfollowtype">
-      <SourceTextLength>758</SourceTextLength>
+      <SourceTextLength>806</SourceTextLength>
       <Definer>root@localhost</Definer>
     </view>
     <column id="293" parent="287" name="orderCode">
@@ -1391,49 +1391,53 @@
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="342" parent="292" name="productName">
+    <column id="342" parent="292" name="amount">
       <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="343" parent="292" name="productName">
+      <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="343" parent="292" name="Discount">
-      <Position>3</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="344" parent="292" name="Price">
+    <column id="344" parent="292" name="Discount">
       <Position>4</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="345" parent="292" name="supplier">
+    <column id="345" parent="292" name="Price">
       <Position>5</Position>
+      <DataType>float|0s</DataType>
+    </column>
+    <column id="346" parent="292" name="supplier">
+      <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="346" parent="292" name="image">
-      <Position>6</Position>
+    <column id="347" parent="292" name="image">
+      <Position>7</Position>
       <DataType>varchar(1000)|0s</DataType>
     </column>
-    <column id="347" parent="292" name="typeCode">
-      <Position>7</Position>
+    <column id="348" parent="292" name="typeCode">
+      <Position>8</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="292" name="amountImport">
-      <Position>8</Position>
-      <DataType>int|0s</DataType>
-    </column>
-    <column id="349" parent="292" name="AmountExport">
+    <column id="349" parent="292" name="amountImport">
       <Position>9</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="350" parent="292" name="description">
+    <column id="350" parent="292" name="AmountExport">
       <Position>10</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="351" parent="292" name="description">
+      <Position>11</Position>
       <DataType>varchar(1000)|0s</DataType>
     </column>
-    <column id="351" parent="292" name="sex">
-      <Position>11</Position>
+    <column id="352" parent="292" name="sex">
+      <Position>12</Position>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <column id="352" parent="292" name="typeName">
-      <Position>12</Position>
+    <column id="353" parent="292" name="typeName">
+      <Position>13</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
   </database-model>

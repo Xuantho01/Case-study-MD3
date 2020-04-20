@@ -1,6 +1,6 @@
 package model;
 
-public class ProcductForSearch {
+public class ProductForSearch {
         private String productCode;
         private String productName;
         private float price;
@@ -31,7 +31,7 @@ public class ProcductForSearch {
             this.userName = userName;
         }
 
-        public ProcductForSearch(String productCode, float price, float discount, int amount, String userName) {
+        public ProductForSearch(String productCode, float price, float discount, int amount, String userName) {
             this.productCode = productCode;
             this.price = price;
             this.discount = discount;
@@ -40,9 +40,9 @@ public class ProcductForSearch {
 
         }
 
-        public ProcductForSearch(String productCode, String productName, float price, float discount, int amount,
-                       String supplier, String typeCode, int amountImport, int amountExport,
-                       String description) {
+        public ProductForSearch(String productCode, String productName, float price, float discount, int amount,
+                                String supplier, String typeCode, int amountImport, int amountExport,
+                                String description) {
             this.productCode = productCode;
             this.productName = productName;
             this.price = price;
@@ -55,9 +55,9 @@ public class ProcductForSearch {
             this.description = description;
         }
 
-        public ProcductForSearch(String productCode, String productName, float price,
-                       float discount, int amount, String supplier, String typeCode,
-                       String image, int amountImport, int amountExport, String description, String sex) {
+        public ProductForSearch(String productCode, String productName, float price,
+                                float discount, int amount, String supplier, String typeCode,
+                                String image, int amountImport, int amountExport, String description, String sex) {
             this.productCode = productCode;
             this.productName = productName;
             this.price = price;
@@ -72,10 +72,10 @@ public class ProcductForSearch {
             this.sex = sex;
         }
 
-        public ProcductForSearch() {
+        public ProductForSearch() {
         }
 
-        public ProcductForSearch(String productCode, String productName, float price, float discount, String supplier, String image) {
+        public ProductForSearch(String productCode, String productName, float price, float discount, String supplier, String image) {
             this.productCode = productCode;
             this.productName = productName;
             this.price = price;
@@ -84,10 +84,10 @@ public class ProcductForSearch {
             this.image = image;
         }
 
-        public ProcductForSearch(String productCode, String productName,
-                       float price, float discount, int amount, String supplier,
-                       String typeCode, String image, int amountImport,
-                       int amountExport, String description) {
+        public ProductForSearch(String productCode, String productName,
+                                float price, float discount, int amount, String supplier,
+                                String typeCode, String image, int amountImport,
+                                int amountExport, String description) {
             this.productCode = productCode;
             this.productName = productName;
             this.price = price;

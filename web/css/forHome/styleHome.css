@@ -7,6 +7,9 @@ hmtl, body {
     color: #222;
     font-size: 25px;
 }
+.list-group-item{
+    color: #007bff;
+}
 .navbar {
     background-color: rgba(82, 64, 80, 0.9) !important;
 }
@@ -96,6 +99,14 @@ hmtl, body {
     color:cornflowerblue;
     font-size: 3.5rem;
 }
+/*.hangmuc li a{*/
+/*    color: white;*/
+/*}*/
+
+.btn-primary a {
+color: white;
+}
+
 @media (max-width: 992px){
     .carousel-caption {
         top: 20%;

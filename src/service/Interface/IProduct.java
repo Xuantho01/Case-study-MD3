@@ -1,5 +1,5 @@
 package service.Interface;
-import model.ProcductForSearch;
+import model.ProductForSearch;
 import model.Product;
 
 import java.sql.SQLException;
@@ -16,5 +16,5 @@ public interface IProduct {
 
     public void remove(String productCode) throws SQLException;
 
-    public ProcductForSearch findProductByInputType(String inputType);
+    public List<Product> findProductByInputType(String inputType);
 }

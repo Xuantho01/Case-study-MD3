@@ -1,10 +1,10 @@
 package service;
 
-import model.ProcductForSearch;
+import model.ProductForSearch;
 import model.Product;
 import service.Interface.IProduct;
 
-import java.sql.Connection;
+import java.io.Reader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,9 +25,9 @@ public class ProductImpl implements IProduct {
                 float Discount = resultSet.getFloat(3);
                 float Price = resultSet.getFloat(4);
                 int amount = resultSet.getInt(5);
-                String supplier = resultSet.getString(5);
+                String supplier = resultSet.getString(6);
                 String typeCode = resultSet.getString(7);
-                String image = resultSet.getString(6);
+                String image = resultSet.getString(8);
                 int amountImport = resultSet.getInt(9);
                 int amountExport = resultSet.getInt(10);
                 String description = resultSet.getString(11);
@@ -92,11 +92,13 @@ public class ProductImpl implements IProduct {
         }
         return product;
     }
-@Override
-    public ProcductForSearch findProductByInputType(String inputType) {
-        ProcductForSearch product = null;
+    @Override
+    public List<Product> findProductByInputType(String inputType) {
+
+        List<Product> list = new ArrayList<>();
+//        List<ProductForSearch> list = new ArrayList<>();
         try (PreparedStatement statement = Connect.getConnection().prepareStatement
-                ("select * from productfollowtype where productCode = ?")) {
+                ("select * from productFollowType where sex = ?")) {
             statement.setString(1, inputType);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
@@ -112,14 +114,15 @@ public class ProductImpl implements IProduct {
                 int amountExport = resultSet.getInt("AmountExport");
                 String description = resultSet.getString("description");
                 String sex = resultSet.getString("sex");
-                product = new ProcductForSearch(PCode, productName,
+               Product product = new Product(PCode, productName,
                         Discount, Price, amount, supplier, typeCode,
                         image, amountImport, amountExport, description, sex);
+                list.add(product);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return product;
+        return list;
     }
 
     private String getParameter(ResultSet resultSet, int i) throws SQLException {
