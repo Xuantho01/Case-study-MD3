@@ -26,6 +26,7 @@ public class OderServlet extends HttpServlet {
     private IProduct product = new ProductImpl();
     private UserServlet userServlet = new UserServlet();
     private IUser user = new UserImpl();
+    private ProductServlet productServlet = new ProductServlet();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         vietKey(request, response);
@@ -63,11 +64,15 @@ public class OderServlet extends HttpServlet {
         Product product = new Product(productCode,  Price,  Discount,  amount,  userName);
         this.oder.update(product);
         getUserHome(request, response);
+
     }
 
     private void getUserHome(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products = this.product.findAll();
         request.setAttribute("products", products);
+
+        productServlet.setUserName(request);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/home/homeUser.jsp");
         try {
             dispatcher.forward(request,response);
@@ -110,12 +115,13 @@ public class OderServlet extends HttpServlet {
     }
 
     private void showOderForm(HttpServletRequest request, HttpServletResponse response) {
+
         String productCode = request.getParameter("productCode");
-        String userName = request.getParameter("userName");
         Product products = this.product.findByProductCode(productCode);
-        User user = this.user.findByUserName(userName);
         request.setAttribute("products", products);
-        request.setAttribute("users",user);
+
+        productServlet.setUserName(request);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/oder.jsp");
         try {
             dispatcher.forward(request, response);
@@ -126,11 +132,13 @@ public class OderServlet extends HttpServlet {
 
     private void showOderFormAccept(HttpServletRequest request, HttpServletResponse response) {
         String productCode = request.getParameter("productCode");
-        String userName = request.getParameter("userName");
+
         Product products = this.product.findByProductCode(productCode);
-        User user = this.user.findByUserName(userName);
+
         request.setAttribute("products", products);
-        request.setAttribute("users",user);
+
+        productServlet.setUserName(request);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/orderForm.jsp");
         try {
             dispatcher.forward(request, response);

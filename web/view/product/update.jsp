@@ -24,8 +24,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
-                <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
-                <li><a href="${pageContext.request.contextPath}/system?action=create" class="nav-link">Tạo mới</a></li>
+                <li><a href="${pageContext.request.contextPath}/system?action=homeAdmin&userName=${users.getUserName()}" class="nav-link">Trang chủ</a></li>
+                <li><a href="${pageContext.request.contextPath}/system?action=create&userName=${users.getUserName()}" class="nav-link">Tạo mới</a></li>
                 <li>
                     <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"

@@ -128,11 +128,6 @@
                        value="${requestScope["users"].getSex()}">
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-sm-9 col-sm-offset-3">
-                <span class="help-block">*Yêu cầu nhập thông tin</span>
-            </div>
-        </div>
         <button type="submit" class="btn btn-primary btn-block">Cập nhật thông tin</button>
     </form> <!-- /form -->
 </div> <!-- ./container -->

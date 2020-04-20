@@ -13,7 +13,15 @@ public class Product {
     private int amountExport;
     private String description;
     private String userName;
+    private String sex;
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     public String getUserName() {
         return userName;
@@ -29,6 +37,7 @@ public class Product {
         this.discount = discount;
         this.amount = amount;
         this.userName = userName;
+
     }
 
     public Product(String productCode, String productName, float price, float discount, int amount,
@@ -44,6 +53,23 @@ public class Product {
         this.amountImport = amountImport;
         this.amountExport = amountExport;
         this.description = description;
+    }
+
+    public Product(String productCode, String productName, float price,
+                   float discount, int amount, String supplier, String typeCode,
+                   String image, int amountImport, int amountExport, String description, String sex) {
+        this.productCode = productCode;
+        this.productName = productName;
+        this.price = price;
+        this.discount = discount;
+        this.amount = amount;
+        this.supplier = supplier;
+        this.typeCode = typeCode;
+        this.image = image;
+        this.amountImport = amountImport;
+        this.amountExport = amountExport;
+        this.description = description;
+        this.sex = sex;
     }
 
     public Product() {

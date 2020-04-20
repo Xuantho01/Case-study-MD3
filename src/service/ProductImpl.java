@@ -1,5 +1,6 @@
 package service;
 
+import model.ProcductForSearch;
 import model.Product;
 import service.Interface.IProduct;
 
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductImpl implements IProduct {
+
 
     @Override
     public List<Product> findAll() {
@@ -84,6 +86,35 @@ public class ProductImpl implements IProduct {
                 product = new Product(PCode, productName,
                         Discount, Price, amount, supplier, typeCode,
                         image, amountImport, amountExport, description);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
+@Override
+    public ProcductForSearch findProductByInputType(String inputType) {
+        ProcductForSearch product = null;
+        try (PreparedStatement statement = Connect.getConnection().prepareStatement
+                ("select * from productfollowtype where productCode = ?")) {
+            statement.setString(1, inputType);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String PCode = resultSet.getString("productCode");
+                String productName = resultSet.getString("productName");
+                float Discount = resultSet.getFloat("Discount");
+                float Price = resultSet.getFloat("Price");
+                int amount = resultSet.getInt("amount");
+                String supplier = resultSet.getString("supplier");
+                String typeCode = resultSet.getString("typeCode");
+                String image = resultSet.getString("image");
+                int amountImport = resultSet.getInt("amountImport");
+                int amountExport = resultSet.getInt("AmountExport");
+                String description = resultSet.getString("description");
+                String sex = resultSet.getString("sex");
+                product = new ProcductForSearch(PCode, productName,
+                        Discount, Price, amount, supplier, typeCode,
+                        image, amountImport, amountExport, description, sex);
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,8 +1,12 @@
 package controller;
 
+import model.ProcductForSearch;
 import model.Product;
+import model.User;
 import service.Interface.IProduct;
+import service.Interface.IUser;
 import service.ProductImpl;
+import service.UserImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +21,7 @@ import java.util.List;
 @WebServlet(urlPatterns = "/system")
 public class ProductServlet extends HttpServlet {
     private IProduct product = new ProductImpl();
+    private IUser user = new UserImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        request.setCharacterEncoding("UTF-8");
        response.setCharacterEncoding("UTF-8");
@@ -75,8 +80,8 @@ public class ProductServlet extends HttpServlet {
 
         Product products = new Product(productCode, productName,
                 Discount,Price,amount,supplier,typeCode,amountImport,AmountExport,description);
-
         this.product.update(productCode,products);
+
         request.setAttribute("products",products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/update.jsp");
         try {
@@ -116,6 +121,7 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        String Male = "MaLe";
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -139,6 +145,8 @@ public class ProductServlet extends HttpServlet {
             case "detail":
                 showDetailProduct(request,response);
                 break;
+            case "Male":
+                showFlowInput(request,response, Male);
             default:
                 showHome(request,response);
                 break;
@@ -162,6 +170,7 @@ public class ProductServlet extends HttpServlet {
         Product products = this.product.findByProductCode(productCode);
         request.setAttribute("products",products);
 
+        setUserName(request);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/update.jsp");
         try {
             dispatcher.forward(request,response);
@@ -169,11 +178,19 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    public void setUserName(HttpServletRequest request) {
+        String userName = request.getParameter("userName");
+        User user = this.user.findByUserName(userName);
+        request.setAttribute("users",user);
+    }
+
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+        setUserName(request);
         String productCode = request.getParameter("productCode");
         Product products = this.product.findByProductCode(productCode);
-        request.setAttribute("products",products);
 
+        request.setAttribute("products",products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/delete.jsp");
         try {
             dispatcher.forward(request,response);
@@ -183,12 +200,14 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showHome(HttpServletRequest request, HttpServletResponse response) {
+
         findAllProduct(request, response, "view/home/home.jsp");
     }
 
     private void findAllProduct(HttpServletRequest request, HttpServletResponse response, String s) {
         List<Product> products = this.product.findAll();
         request.setAttribute("products",products);
+        setUserName(request);
         RequestDispatcher dispatcher = request.getRequestDispatcher(s);
         try {
             dispatcher.forward(request, response);
@@ -196,6 +215,11 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    private void showFlowInput(HttpServletRequest request, HttpServletResponse response, String Male){
+        List<ProcductForSearch> products = this.product.findProductByInputType(Male);
+    }
+
     private void showHomeFormAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         findAllProduct(request, response, "view/home/themeAdmin.jsp");
     }
@@ -203,6 +227,7 @@ public class ProductServlet extends HttpServlet {
         findAllProduct(request, response, "view/home/nextPage.jsp");
     }
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        setUserName(request);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/createNewProduct.jsp");
         try {
             dispatcher.forward(request, response);
@@ -210,8 +235,5 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-//    private void showHomeFormAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        findAllProduct(request, response, "view/home/themeAdmin.jsp");
-//    }
 
 }

@@ -1,4 +1,5 @@
 package service.Interface;
+import model.ProcductForSearch;
 import model.Product;
 
 import java.sql.SQLException;
@@ -14,4 +15,6 @@ public interface IProduct {
     public void update(String productCode, Product product) throws SQLException;
 
     public void remove(String productCode) throws SQLException;
+
+    public ProcductForSearch findProductByInputType(String inputType);
 }
