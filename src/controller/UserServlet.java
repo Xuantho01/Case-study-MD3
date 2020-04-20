@@ -23,6 +23,7 @@ import java.util.List;
 public class UserServlet extends HttpServlet {
     private IUser user = new UserImpl();
     private IProduct product = new ProductImpl();
+    private ProductServlet productServlet = new ProductServlet();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         vietKey(request, response);
@@ -49,8 +50,7 @@ public class UserServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
-            case "deleteUser":
-                break;
+
             default:
                 break;
         }
@@ -135,6 +135,8 @@ public class UserServlet extends HttpServlet {
         return false;
     }
 
+
+
     // fix thêm
     public void showUserHome(HttpServletRequest request, HttpServletResponse response){
         String userName = request.getParameter("userName");
@@ -202,6 +204,9 @@ public class UserServlet extends HttpServlet {
             case "userInfor":
                 showUserInformation(request, response);
                 break;
+            case "Bill":
+                showBillOfUser(request,response);
+                break;
             default:
                 break;
         }
@@ -252,5 +257,18 @@ public class UserServlet extends HttpServlet {
     private void vietKey(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+    }
+    private void showBillOfUser(HttpServletRequest request, HttpServletResponse response) {
+        String userName = request.getParameter("userName");
+        User user = this.user.findByUserName(userName);
+        List<Product> products = this.user.BillOfUser(userName);
+        request.setAttribute("users",user);
+        request.setAttribute("products",products);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/orderInfor.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

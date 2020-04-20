@@ -144,8 +144,8 @@
             <div>
                 <ul class="hangmuc">
                     <li><h1>Danh mục</h1></li>
-                    <li><a href="#" class="list-group-item">Giày nam</a></li>
-                    <li><a href="#" class="list-group-item">Giày nữ</a></li>
+                    <li><a href="${pageContext.request.contextPath}/system?action=Male" class="list-group-item">Giày nam</a></li>
+                    <li><a href="${pageContext.request.contextPath}/system?action=Female" class="list-group-item">Giày nữ</a></li>
                     <!--                        <li><a href="#" class="list-group-item">Giày thể thao</a></li>-->
                 </ul>
             </div>

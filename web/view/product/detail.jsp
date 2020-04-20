@@ -38,7 +38,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="color: #0076ad">
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/users?action=updateUser&userName=${users.getUserName()}">Thông tin</a>
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                            <form action="Logout" method="post">
+                                <input type="submit" value="Đăng xuất">
+                            </form>
                         </div>
                     </div>
                 </li>
@@ -143,8 +145,8 @@
             <div>
                 <ul class="hangmuc">
                     <li><h1>Danh mục</h1></li>
-                    <li><a href="#" class="list-group-item">Giày nam</a></li>
-                    <li><a href="#" class="list-group-item">Giày nữ</a></li>
+                    <li><a href="${pageContext.request.contextPath}/system?action=Male" class="list-group-item">Giày nam</a></li>
+                    <li><a href="${pageContext.request.contextPath}/system?action=Female" class="list-group-item">Giày nữ</a></li>
                     <!--                        <li><a href="#" class="list-group-item">Giày thể thao</a></li>-->
                 </ul>
             </div>

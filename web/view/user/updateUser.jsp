@@ -46,6 +46,8 @@
                             <a class="dropdown-item"
                                href="${pageContext.request.contextPath}/users?action=userInfor&userName=${users.getUserName()}">Thông
                                 tin</a>
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/users?action=Bill&userName=${users.getUserName()}">Giỏ hàng</a>
                             <form action="Logout" method="post">
                                 <input type="submit" value="Đăng xuất">
                             </form>

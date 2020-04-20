@@ -14,6 +14,56 @@ public class Product {
     private String description;
     private String userName;
     private String sex;
+    private String name;
+    private String productList;
+    private int totalAmount;
+    private float totalPrice;
+
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Product(String productCode, String productName,
+                   float price, String userName, String name,
+                   String productList, int totalAmount, float discount, float totalPrice) {
+        this.productCode = productCode;
+        this.productName = productName;
+        this.price = price;
+        this.userName = userName;
+        this.name = name;
+        this.productList = productList;
+        this.totalAmount = totalAmount;
+        this.discount = discount;
+        this.totalPrice = totalPrice;
+    }
+
+    public int getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(int totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public String getProductList() {
+        return productList;
+    }
+
+    public void setProductList(String productList) {
+        this.productList = productList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getSex() {
         return sex;
@@ -39,6 +89,7 @@ public class Product {
         this.userName = userName;
 
     }
+
 
     public Product(String productCode, String productName, float price, float discount, int amount,
                    String supplier, String typeCode, int amountImport, int amountExport,

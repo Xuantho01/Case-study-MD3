@@ -11,7 +11,10 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="web_management" />
+          <node kind="schema">
+            <name qname="db_tour" />
+            <name qname="web_management" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>

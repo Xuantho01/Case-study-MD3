@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/forHome/styleHome.css">
     <link rel="stylesheet" href="../../css/footer/footer.css">
+    <link rel="stylesheet" href="../../css/search/search.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
@@ -23,8 +24,20 @@
         <button class="navbar-toggler" type="button" data-toggle = "collapse" data-target = "#navbarReponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="col-lg-4 col-sm-3 col-md-3" id="Searching">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q">
+                    <div class="input-group-btn" style ="margin-top: -2px">
+                        <button class="btn btn-default" type="submit">Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <div class="collapse navbar-collapse" id="navbarReponsive">
             <ul class="navbar-nav ml-auto">
+
                 <li><a href="${pageContext.request.contextPath}/system?action=home" class="nav-link">Trang chủ</a></li>
                 <li><a href="${pageContext.request.contextPath}/users?action=register" class="nav-link">Đăng ký</a></li>
                 <li><a href="${pageContext.request.contextPath}/users?action=login" class="nav-link">Đăng nhập</a></li>

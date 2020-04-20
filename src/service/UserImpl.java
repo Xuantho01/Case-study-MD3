@@ -1,5 +1,6 @@
 package service;
 
+import model.Product;
 import model.User;
 import service.Interface.IUser;
 
@@ -110,5 +111,34 @@ public class UserImpl implements IUser {
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
+    }
+    @Override
+    public List<Product> BillOfUser(String userName) {
+        List<Product> list = new ArrayList<>();
+
+//        List<ProductForSearch> list = new ArrayList<>();
+        try (PreparedStatement statement = Connect.getConnection().prepareStatement
+                ("select * from cart where userName = ?")) {
+            statement.setString(1, userName);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String productList = resultSet.getString("productList");
+                String productCode = resultSet.getString("productCode");
+                String name = resultSet.getString("name");
+                String productName = resultSet.getString("productName");
+                int totalAmount = Integer.parseInt(resultSet.getString("totalAmount"));
+                float Discount = resultSet.getFloat("Discount");
+                float Price = resultSet.getFloat("Price");
+                float totalPrice = Price - ((Discount*Price)/100);
+
+                Product product = new Product(productCode, productName,
+                        Price, userName, name, productList, totalAmount,
+                        Discount, totalPrice);
+                list.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

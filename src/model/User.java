@@ -32,6 +32,7 @@ public class User {
         this.role = role;
     }
 
+
     public String getUserName() {
         return userName;
     }

@@ -1,5 +1,6 @@
 package service.Interface;
 
+import model.Product;
 import model.User;
 
 import java.sql.SQLException;
@@ -15,4 +16,6 @@ public interface IUser {
     public void update(String userName, User user) throws SQLException;
 
     public void remove(String userName) throws SQLException;
+
+    public List<Product> BillOfUser(String userName);
 }
