@@ -76,3 +76,10 @@
 .widgets.footer-widgets .widget-contact ul li + li {
     margin-top: 20px;
 }
+.footer-widgets .col-12 {
+    text-shadow: none;
+    margin-top: 16px;
+}
+.widget-about {
+    font-size: 17px;
+}

@@ -218,7 +218,6 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-widget widget-about">
                         <h5 class="widget-title">About Us</h5>
-
                         <p>We are a team of designers and developers that create high quality <a href="www.dkstudio.in">Readmore...</a></p>
                     </div>
                 </div>
